@@ -1,0 +1,129 @@
+/*title font*/
+#title {
+    font-family: 'EB Garamond', serif;
+    font-weight: 600;
+    color: #084A47;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    background-color: #E4FDE1;
+    background: linear-gradient(rgba(238, 196, 109, 0.6),
+    rgba(238, 196, 109, 0.3)), url('/media/hero_image.png') no-repeat center center fixed;
+    background-size: cover;
+    height: calc(100vh - 164px);
+    color: #084A47;
+    font-family: 'Lato';
+}
+
+/* from Bulma */
+.icon {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+a {
+    color: #084A47;
+}
+
+a.text-muted {
+    color: #084A47 !important;
+}
+
+a.text-muted:hover {
+    color: #6C780E!important;
+}
+
+a:hover {
+    color: #6C780E;
+}
+
+.hover:hover {
+    color: #6C780E;
+    background-color: white;
+    border-radius: 3%;
+}
+
+.logo-font {
+    text-transform: uppercase;
+}
+
+.text-color {
+    color: #292823
+}
+
+/*box over hero image for s-title and tagline*/
+#text-cover {
+    letter-spacing: 2px;
+    width: 400px;
+    height: 250px;
+    background-color: rgba(108, 120, 14, .6);
+    padding: 20px;
+  }
+
+.main-logo-link {
+    width: fit-content;
+}
+
+.shop-now-button {
+    background: #BE7A07;
+    color: #292823;
+    min-width: 260px;
+}
+
+.btn-black {
+    background: black;
+    color: white;
+}
+
+.shop-now-button:hover,
+.shop-now-button:active,
+.shop-now-button:focus {
+    background: #EEC46D;
+    color: #292823;
+}
+
+.btn-black:hover,
+.btn-black:active,
+.btn-black:focus {
+    background: #222;
+    color: white;
+}
+
+.text-white {
+    color: #fff !important;
+}
+
+.border-black {
+    border: 1px solid #292823 !important;
+}
+
+/* -------------------------------- Media Queries */
+
+/* Slightly larger container on xl screens */
+@media (min-width: 1200px) {
+  .container {
+    max-width: 80%;
+  }
+}
+
+/* fixed top navbar only on medium and up */
+@media (min-width: 992px) {
+    .fixed-top-desktop-only {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 1030;
+    }
+
+    .header-container {
+        padding-top: 164px;
+    }
+}
