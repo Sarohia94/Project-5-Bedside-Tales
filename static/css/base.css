@@ -10,7 +10,6 @@ html {
 }
 
 body {
-    background-color: #E4FDE1;
     background: linear-gradient(rgba(238, 196, 109, 0.6),
     rgba(238, 196, 109, 0.3)), url('/media/hero_image.png') no-repeat center center fixed;
     background-size: cover;
@@ -58,6 +57,11 @@ a:hover {
     color: #292823
 }
 
+.bg-color {
+    background: #084A47 !important;
+}
+
+
 /*box over hero image for s-title and tagline*/
 #text-cover {
     letter-spacing: 2px;
@@ -77,8 +81,8 @@ a:hover {
     min-width: 260px;
 }
 
-.btn-black {
-    background: black;
+.btn-color {
+    background: #084A47;
     color: white;
 }
 
@@ -89,10 +93,10 @@ a:hover {
     color: #292823;
 }
 
-.btn-black:hover,
-.btn-black:active,
-.btn-black:focus {
-    background: #222;
+.btn-color:hover,
+.btn-color:active,
+.btn-color:focus {
+    background: #6C780E;
     color: white;
 }
 
