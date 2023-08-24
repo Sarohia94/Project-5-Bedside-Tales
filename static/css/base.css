@@ -108,6 +108,32 @@ a:hover {
     border: 1px solid #292823 !important;
 }
 
+.overlay {
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	position: fixed;
+	background: white;
+	z-index: -1;
+}
+
+.btt-button {
+    height: 2.625rem;
+    width: 2.625rem;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    background-color: rgba(238, 196, 109, 0.1);
+}
+
+.btt-button:active {
+    background-color: #EEC46D;
+}
+
+.btt-link {
+    cursor: pointer;
+}
 /* -------------------------------- Media Queries */
 
 /* Slightly larger container on xl screens */
