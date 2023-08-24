@@ -7,11 +7,11 @@
                 Books
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="all-products-link">
-                <a href="" class="dropdown-item">Adventure</a>
-                <a href="" class="dropdown-item ">Fantasy</a>
-                <a href="" class="dropdown-item ">Fiction</a>
-                <a href="" class="dropdown-item ">Picture books</a>
-                <a href="{% url 'products' %}" class="dropdown-item">All books</a>
+                <a href="{% url 'products' %}?category=Adventure" class="dropdown-item">Adventure</a>
+                <a href="{% url 'products' %}?category=Fantasy" class="dropdown-item ">Fantasy</a>
+                <a href="{% url 'products' %}?category=Fiction" class="dropdown-item ">Fiction</a>
+                <a href="{% url 'products' %}?category=Picture books" class="dropdown-item ">Picture books</a>
+                <a href="{% url 'products' %}?category=Adventure,Fantasy,Fiction,Picture books" class="dropdown-item">All books</a>
             </div>
         </li>
 
