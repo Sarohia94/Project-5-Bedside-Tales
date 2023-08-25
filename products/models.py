@@ -76,4 +76,10 @@ class Review(models.Model):
         ordering = ['-date']
 
     def __str__(self):
-        return self.title
+        return f"Review {self.content} by {self.user}"
+
+    def get_absolute_url(self):
+        """
+        Returns review with primary key
+        """
+        return reverse('product detail', kwargs={'pk': self.pk})

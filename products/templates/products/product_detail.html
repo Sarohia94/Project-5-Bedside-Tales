@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load crispy_forms_tags %}
 
 {% block page_header %}
     <div class="container header-container">
@@ -93,10 +94,10 @@
             </div>
         </div>
         <!-- Reviews -->
-        {% if reviews %}
+        {% if review %}
         <div class="row">
-            {% for review in reviews %}
-            <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
+            {% for review in review %}
+            <div class="col-12 col-md-8 col-lg-4 offset-lg-2">
                 <div class="card mb-5 mt-md-5">
                     <div class="card-body">
                         <h3 class="card-title brand-font-alt h6">{{ review.title }}</h3>
@@ -107,8 +108,10 @@
                         {% if user.is_authenticated %}
                             <h3 class="text-color">Leave a Review: </h3>
                             <p>Posting as: {{ review.user}}</p>
-                            <form method="post">
-                                <button type="submit" class="btn btn-colour">Submit</button>
+                            <form method="post" style="margin-top: 1.3em;">
+                                {% csrf_token %}
+                                {{ form | crispy }}
+                                <button type="submit" class="btn btn-color">Submit</button>
                                 <hr>
                             </form>
                         {% else %}
@@ -128,9 +131,4 @@
         </div>
         {% endif %}
     </div>
-{% endblock %}
-
-{% block postloadjs %}
-{{ block.super }}
-{% include 'products/includes/quantity_input_script.html' %}
 {% endblock %}
