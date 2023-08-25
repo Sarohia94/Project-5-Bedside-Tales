@@ -104,8 +104,21 @@ a:hover {
     color: #fff !important;
 }
 
+.text-color {
+    color: #292823 !important;
+}
+
+.border-color {
+    border: 1px solid #BE7A07 !important;
+}
+
 .border-black {
     border: 1px solid #292823 !important;
+}
+
+a.category-badge > span.badge:hover {
+    background: #BE7A07 !important;
+    color: #fff !important;
 }
 
 .overlay {
