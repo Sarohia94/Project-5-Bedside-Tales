@@ -1,4 +1,6 @@
+
 {% extends "base.html" %}
+
 {% load static %}
 
 {% block page_header %}
@@ -22,12 +24,92 @@
 
         <div class="row">
             <div class="col">
+                <!-- Bag layout for small screens -->
                 {% if bag_items %}
-                    <div class="table-responsive rounded">
-                        {{ bag_items }}
+                <div class="d-block d-md-none">
+                    <div class="row">
+                        <div class="col">
+                            {% include "bag/bag_total.html" %}
+                        </div>
                     </div>
+                    <div class="row">
+                        <div class="col">
+                            <!-- Summary of bag content for display on small screens -->
+                            <p class="text-color font-weight-bold mb-5 mt-3">A summary of your bag contents is below:</p>
+                        </div>
+                    </div>
+                    {% for item in bag_items %}
+                    <div class="row">
+                        <div class="col-12 col-sm-6 mb-2">
+                            {% include "bag/item_image.html" %}
+                        </div>
+                        <div class="col-12 col-sm-6 mb-2">
+                            {% include "bag/item_info.html" %}
+                        </div>
+                        <div class="col-12 col-sm-6 order-sm-last">
+                            <p class="my-0">Price Each: £{{ item.product.price }}</p>
+                        </div>
+                        <div class="col-12 col-sm-6">
+                            {% include "bag/item_quantity.html" %}
+                        </div>
+                        <div class="col-12 col-sm-6 order-sm-last">
+                            <p class="my-0"> </p>
+                        </div>
+                    </div>
+                    <div class="row"><div class="col"><hr></div></div>
+                    {% endfor %}
+                    <!-- Back to top button -->
+                    <button class="btt-link d-flex btt-button shadow-sm rounded-0 border border-warning"
+                        type="button" aria-label="scroll to top button">
+                        <i class="fas fa-arrow-up text-warning text-decoration-none mx-auto my-auto"></i>
+                    </button>
+                </div>             
+                <!-- Bag layout for median to larger screens -->      
+                <div class="table-responsive rounded d-none d-md-block">
+                    <table class="table table-sm table-borderless">
+                        <thead class="text-color">
+                            <tr>
+                                <th scope="col">Product Info</th>
+                                <th scope="col"></th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Qty</th>
+                                <th scope="col">Subtotal</th>
+                            </tr>
+                        </thead>
+                        {% for item in bag_items %}
+                            <tr>
+                                <td class="p-3 w-25">
+                                    {% include "bag/item_image.html" %}
+                                </td>
+                                <td class="py-3">
+                                    {% include "bag/item_info.html" %}
+                                </td>
+                                <td class="py-3">
+                                    <p class="my-0">${{ item.product.price }}</p>
+                                </td>
+                                <td class="py-3 w-25">
+                                    {% include "bag/item_quantity.html" %}
+                                </td>
+                                <td class="py-3">
+                                    <p class="my-0"> </p>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        <tr>
+                            <td colspan="5" class="pt-5 text-right">
+                                {% include "bag/bag_total.html" %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="5" class="text-right">
+                                {% include "bag/bag_options.html" %}
+                            </td>
+                        </tr>
+                    </table>
+                </div>
                 {% else %}
                     <p class="lead mb-5">Your bag is empty.</p>
+                    <!-- Keep shopping link -->
                     <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 btn-lg">
                         <span class="icon">
                             <i class="fas fa-chevron-left"></i>
