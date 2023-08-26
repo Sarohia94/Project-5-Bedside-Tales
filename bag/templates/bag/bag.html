@@ -52,7 +52,7 @@
                             {% include "bag/item_quantity.html" %}
                         </div>
                         <div class="col-12 col-sm-6 order-sm-last">
-                            <p class="my-0"> </p>
+                            <p class="my-0">£{{ item.product.price | calc_subtotal:item.quantity }}</p>
                         </div>
                     </div>
                     <div class="row"><div class="col"><hr></div></div>
