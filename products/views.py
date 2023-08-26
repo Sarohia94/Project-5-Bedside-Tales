@@ -52,10 +52,6 @@ def product_detail(request, product_id):
         'review_form': ReviewForm()
     }
 
-    return render(request, 'products/product_detail.html', context)
-
-
-def review(request, product_id):
     if request.method == "POST":
         form = ReviewForm(request.POST)
         if form.is_valid():
@@ -63,8 +59,10 @@ def review(request, product_id):
             review.product = Product.objects.get(pk=product_id)
             review.user = request.user
             review.save()
-            messages.success(request, "Review saved!")
-            return redirect('products/product_detail.html', pk=product_id)
+            messages.success(request, "Review added!")
+            print(product_id)
+            return redirect('product_detail', product_id=product_id)
         else:
             messages.error(request,'Error in form')
-    return redirect('products/product_detail.html', pk=product_id)
+    
+    return render(request, 'products/product_detail.html', context)
