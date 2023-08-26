@@ -96,7 +96,7 @@
         <div class="col-12 col-sm-6 col-md-8 offset-lg-2 card-body">
             {% if user.is_authenticated %}
             <h3 class="text-color">Leave a Review: </h3>
-            <p>Posting as: {{ review.user}}</p>
+            <p>Posting as: {{ review.user }}</p>
             <form method="post" style="margin-top: 1.3em;">
                 {% csrf_token %}
                 {{ review_form | crispy }}
@@ -134,3 +134,8 @@
         {% endblock %}
     </div>
 </div>
+
+{% block postloadjs %}
+{{ block.super }}
+{% include 'products/includes/quantity_input_script.html' %}
+{% endblock %}

@@ -10,11 +10,3 @@ class ReviewForm(forms.ModelForm):
     class Meta:
         model = Review
         fields = ('title', 'content')
-
-    def __init__(self, *args, **kwargs):
-        """ Adds placeholders and classes """
-        super().__init__(*args, **kwargs)
-        placeholders = {
-            'title': 'Review Title',
-            'content': 'Review Content',
-        }

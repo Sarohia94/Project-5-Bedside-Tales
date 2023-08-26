@@ -60,7 +60,6 @@ def product_detail(request, product_id):
             review.user = request.user
             review.save()
             messages.success(request, "Review added!")
-            print(product_id)
             return redirect('product_detail', product_id=product_id)
         else:
             messages.error(request,'Error in form')
