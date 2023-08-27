@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <hr>
+                <h2 class="logo-font mb-4">Wishlist</h2>
+                <hr>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <p class="font-weight-bold">Hello {{ user.username }},</p>
+            </div>
+            <div class="col-12">
+                <p>
+                    Please see your wishlist below:
+
+                </p>
+                <!-- Return to profile or shop books options -->
+                <div class="col pl-0">
+                    <a href="{% url 'profile' %}" class="btn btn-outline-color rounded-0 btn-lg">
+                        <span class="icon">
+                            <i class="fas fa-user fa-lg"></i>
+                        </span>
+                    <span class="text-uppercase">My Profile</span>
+                    </a>
+                    <a href="{% url 'products' %}" class="btn btn-color rounded-0 btn-lg">
+                        <span class="icon">
+                            <i class="fa-solid fa-book-open"></i>
+                        </span>
+                        <span class="text-uppercase">Shop books</span>
+                    </a>
+                </div>
+                <hr>
+            </div>
+        </div>
+
+        </div>
+{% endblock %}
