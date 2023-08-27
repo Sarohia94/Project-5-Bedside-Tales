@@ -9,7 +9,7 @@ from wishlist.models import Wishlist
 def wishlist(request):
     """ 
     A view to show the user's wishlist 
-    Requests login and displays error message
+    Requests login to access and displays error message
     """
 
     user = get_object_or_404(UserProfile, user=request.user)
@@ -31,11 +31,12 @@ def wishlist(request):
 
 def add_to_wishlist(request, product_id):
     """
-    Add to wishlist view 
-    Requests login and displays error message
-    Prevents from adding same book twice
-    Success message for new book added
+    Add book to wishlist view 
+    Requests login to access and displays error message
+    Prevents from adding same book twice with info message
+    Success message for confirmation new book added
     """
+
     user = get_object_or_404(UserProfile, user=request.user)
     product = get_object_or_404(Product, pk=product_id)
 
@@ -54,5 +55,29 @@ def add_to_wishlist(request, product_id):
                                                 product=product)
     messages.success(request,
                      f'{product.title} has been added to your Wishlist!')
+
+    return redirect(reverse('product_detail', args=[product.id]))
+
+
+def remove_from_wishlist(request, product_id):
+    """ 
+    Remove book from wishlist view 
+    Requests login to access and displays error message
+    Prevents from adding same book twice
+    Success message for new book added
+    """
+
+    user = get_object_or_404(UserProfile, user=request.user)
+    product = get_object_or_404(Product, pk=product_id)
+
+    if not request.user.is_authenticated:
+        messages.error(request,
+                       'Please log in to remove from your Wishlist.')
+        return redirect(reverse('account_login'))
+
+    Wishlist.objects.filter(product=product,
+                            user_profile=user).delete()
+    messages.info(request,
+                  f'{product.title} has been removed from your Wishlist!')
 
     return redirect(reverse('product_detail', args=[product.id]))

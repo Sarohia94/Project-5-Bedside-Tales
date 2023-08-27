@@ -26,7 +26,7 @@
         <div class="col-12">
             {% if wishlist %}
             <p>
-                Please see your wishlist below:
+                Please see your wishlist below.
             </p>
             {% else %}
             <p class="mt-1">Your wishlist is empty.</p>
@@ -81,12 +81,12 @@
                             </td>
                             <td>
                                 <a href="{% url 'product_detail' product.product.id %}"
-                                    aria-label="link to product detail">
+                                    aria-label="link to book in shop">
                                     <i class="fa-solid fa-book-open alt-text-muted"></i>
                                 </a>
                             </td>
                             <td>
-                                <a href="" aria-label="remove product from wishlist">
+                                <a href="{% url 'remove_from_wishlist' product.product.id %}" aria-label="remove book from wishlist">
                                     <i class="fas fa-trash alt-text-muted"></i>
                                 </a>
                             </td>
@@ -98,6 +98,5 @@
         </div>
         {% endif %}
     </div>
-
 </div>
 {% endblock %}
