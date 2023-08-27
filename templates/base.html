@@ -91,7 +91,7 @@
                                 <!-- CRUD functionality for superuser to manage the products -->
                                     <a href="" class="dropdown-item">Book Management</a>
                                 {% endif %}
-                                <a href="" class="dropdown-item">My Profile</a>
+                                <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
                                 <!-- Custom Wish list and account links from Django allauth -->
                                 <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
                                 <a href="" class="dropdown-item">Wish List <i class="fa-solid fa-book-bookmark"></i></a>
