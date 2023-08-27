@@ -44,7 +44,7 @@ def product_detail(request, product_id):
     A view to show individual product details and any reviews left by users
     """
     product = get_object_or_404(Product, pk=product_id)
-    review = Review.objects.all().order_by("-date")
+    review = Review.objects.filter(product=product_id).order_by("-date")
 
     context = {
         'product': product,

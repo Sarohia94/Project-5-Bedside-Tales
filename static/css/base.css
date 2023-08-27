@@ -171,6 +171,13 @@ input[name='q']::placeholder {
     color: #aab7c4;
 }
 
+#review-container {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding: 30px;
+    padding: 30px;
+}
+
 /* ------------------------------- bootstrap toasts */
 
 .message-container {
