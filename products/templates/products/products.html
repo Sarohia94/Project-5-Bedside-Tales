@@ -62,7 +62,7 @@
                                 <div class="card-body pb-0">
                                     <p class="mb-0">{{ product.title }}</p>
                                     <p class="mb-0 small text-muted"">Author: {{ product.author }}</p>
-                                    <p class="lead mb-0 text-left font-weight-bold">${{ product.price }}</p>
+                                    <p class="lead mb-0 text-left font-weight-bold">£{{ product.price }}</p>
                                     {% if product.category %}
                                     <p class="small mt-1 mb-0">
                                         <a class="text-muted" href="{% url 'products' %}?category={{ product.category.name }}">
