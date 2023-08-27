@@ -1,4 +1,4 @@
-from .models import Review, Category, Product
+from .models import Review, Category, Product, Author
 from django import forms
 from django.contrib.auth.models import User
 
@@ -13,16 +13,28 @@ class ReviewForm(forms.ModelForm):
 
 
 class ProductForm(forms.ModelForm):
-
+    """
+    Superuser can use Product Form to manage book admin
+    """
     class Meta:
         model = Product
         fields = '__all__'
 
     def __init__(self, *args, **kwargs):
+        """
+        Override the init() method to make changes to some fields
+        """
         super().__init__(*args, **kwargs)
-        categories = Category.objects.all()
-        friendly_names = [(c.id, c.get_friendly_name()) for c in categories]
 
-        self.fields['category'].choices = friendly_names
-        for field_name, field in self.fields.items():
-            field.widget.attrs['class'] = 'border-black rounded-0'
+
+class AuthorForm(forms.ModelForm):
+    """
+    Superuser Author Form to manage adding new author
+    """
+
+    class Meta:
+        model = Author
+        fields = "__all__"
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)

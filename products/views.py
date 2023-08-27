@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
 from .models import Product, Review, Category
-from .forms import ReviewForm
+from .forms import ReviewForm, ProductForm, AuthorForm
 
 
 def all_products(request):
@@ -65,3 +65,48 @@ def product_detail(request, product_id):
             messages.error(request,'Error in form')
     
     return render(request, 'products/product_detail.html', context)
+
+
+def add_product(request):
+    """ 
+    Add a product to the store 
+    """
+    form = ProductForm()
+    template = 'products/add_product.html'
+    context = {
+        'form': form,
+    }
+
+    return render(request, template, context)
+
+
+def add_author(request):
+    """
+    Add an Author to the store 
+    """
+
+    if not request.user.is_superuser:
+        messages.error(request, "Sorry, only store owners can do that.")
+        return redirect(reverse("home"))
+
+    if request.method == "POST":
+
+        form = AuthorForm(request.POST)
+        if form.is_valid():
+            product = form.save()
+            messages.success(request, "Successfully added a new Author!")
+            return redirect(reverse("add_product"))
+        else:
+            messages.error(
+                request, "Failed to add a new Author. \
+                    Please check if the form is valid."
+            )
+    else:
+        form = AuthorForm()
+    
+    template = "products/add_author.html"
+    context = {
+        "form": form,
+    }
+
+    return render(request, template, context)
