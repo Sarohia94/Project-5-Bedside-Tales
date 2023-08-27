@@ -14,5 +14,5 @@ class Wishlist(models.Model):
     added = models.DateField(auto_now_add=True, blank=False, null=False)
 
     def __str__(self):
-        return self.name
-        
+        return f'({self.user_profile}) Wishlist'
+

@@ -31,6 +31,7 @@
                 <p class="mb-0">{{ product.title }}</p>
                 <p class="mb-0">{{ product.author }}</p>
                 <p class="lead mb-0 text-left font-weight-bold">£{{ product.price }}</p>
+                <hr>
                 {% if product.category %}
                 <p class="small mt-1 mb-0">
                     <a class="text-muted" href="{% url 'products' %}?category={{ product.category.name }}">
@@ -44,7 +45,18 @@
                 </p>
                 {% else %}
                 {% endif %}
+
+                <!-- Add to wishlist -->
+                <p>
+                    <span class="pr-1">Add to Wishlist: </span>
+                    <a href="{% url 'add_to_wishlist' product.id %}" aria-label="Add product to Wishlist">
+                        <i class="fa-solid fa-book-bookmark"></i>
+                    </a>
+                </p>
+                <hr>
+
                 <p class="mt-3">{{ product.description }}</p>
+
                 <!-- Form to add the product to the shopping bag -->
                 <form class="form" action="{% url 'add_to_bag' product.id %}" method="POST">
                     {% csrf_token %}
@@ -96,7 +108,7 @@
             {% if user.is_authenticated %}
             <h3 class="text-color">Leave a Review: </h3>
             <p>Posting as: {{ review.user }}</p>
-            <form method="post" action="{% url 'product_detail' product.id %}"style="margin-top: 1.3em;">
+            <form method="post" action="{% url 'product_detail' product.id %}" style="margin-top: 1.3em;">
                 {% csrf_token %}
                 {{ review_form | crispy }}
                 <button type="submit" class="btn btn-color">Submit</button>
@@ -115,16 +127,16 @@
             <div class="card-body">
                 <h3>Reviews:</h3>
                 <hr>
-                    {% for review in review %}
-                    <div class="border-color" id="review-container">
-                        <h3 class="card-title brand-font-alt h6">{{ review.title }}</h3>
-                        <hr>
-                        <p><small class="text-muted p-0"><em>
-                            Posted by {{ review.user }} on {{ review.date}}
-                        </em></small></p>
-                        <p class="card-text">{{ review.content }}</p>
-                    </div>
-                    {% endfor %}
+                {% for review in review %}
+                <div class="border-color" id="review-container">
+                    <h3 class="card-title brand-font-alt h6">{{ review.title }}</h3>
+                    <hr>
+                    <p><small class="text-muted p-0"><em>
+                                Posted by {{ review.user }} on {{ review.date}}
+                            </em></small></p>
+                    <p class="card-text">{{ review.content }}</p>
+                </div>
+                {% endfor %}
             </div>
         </div>
         {% else %}

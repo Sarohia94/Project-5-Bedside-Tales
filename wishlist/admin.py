@@ -2,4 +2,14 @@ from django.contrib import admin
 from wishlist.models import Wishlist
 
 
-admin.site.register(Wishlist)
+class WishlistAdmin(admin.ModelAdmin):
+    list_display = (
+        'user_profile',
+        'product',
+        'added',
+    )
+
+    ordering = ('-user_profile',)
+
+
+admin.site.register(Wishlist, WishlistAdmin)
