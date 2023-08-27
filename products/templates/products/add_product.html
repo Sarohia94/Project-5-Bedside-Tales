@@ -15,8 +15,8 @@
         <div class="row">
             <div class="col-12 col-md-6">
                 <hr>
-                <h2 class="logo-font mb-4">Product Management</h2>
-                <h5 class="text-muted">Add a Product</h5>
+                <h2 class="logo-font mb-4">Book Management</h2>
+                <h5 class="text-muted">Add a Book</h5>
                 <hr>
             </div>
         </div>
@@ -28,14 +28,14 @@
                     <p>To add a new author please click on the following link: </p>
                     {% for field in form %}
                         {% if field.name == 'author' %}
-                            <a href="{% url 'add_author' %}" aria-label="add-author-link"><strong>Add new Author</strong></a>
+                            <a href="{% url 'add_author' %}" class="text-info" aria-label="add-author-link"><strong>Add new Author</strong></a>
                         {% endif %}
                     {% endfor %}
                     <hr>
                     {{ form | crispy }}
                     <div class="text-right">
                         <a class="btn btn-outline-color rounded-0" href="{% url 'products' %}">Cancel</a>
-                        <button class="btn btn-color rounded-0" type="submit">Add Product</button>
+                        <button class="btn btn-color rounded-0" type="submit">Add Book</button>
                     </div>
                 </form>
             </div>

@@ -89,7 +89,7 @@
                             {% if request.user.is_authenticated %}
                                 {% if request.user.is_superuser %}
                                 <!-- CRUD functionality for superuser to manage the products -->
-                                    <a href="" class="dropdown-item">Book Management</a>
+                                    <a href="{% url 'add_product' %}" class="dropdown-item">Book Management</a>
                                 {% endif %}
                                 <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
                                 <!-- Custom Wish list and account links from Django allauth -->
