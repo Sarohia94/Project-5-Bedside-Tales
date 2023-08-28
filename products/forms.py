@@ -8,6 +8,7 @@ class ReviewForm(forms.ModelForm):
     """ 
     Create form based on Review model for users to leave a review 
     """
+
     class Meta:
         model = Review
         fields = ('title', 'content')
@@ -17,6 +18,7 @@ class ProductForm(forms.ModelForm):
     """
     Superuser can use Product Form to manage book admin
     """
+    
     class Meta:
         model = Product
         fields = '__all__'
