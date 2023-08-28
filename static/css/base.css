@@ -336,6 +336,7 @@ input[name='q']::placeholder {
     border: #BE7A07 solid 2px;
     border-radius: 5px; 
     font-weight: bolder;
+    width: 80%;
 }
 
 /* -------------------------------- Media Queries */
