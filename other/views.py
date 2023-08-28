@@ -1,7 +1,7 @@
-from django.shortcuts import render, redirect, reverse
+from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from .forms import ContactForm
-
+from .models import Featured, Author
 
 def contact_us(request, *args, **kwargs):
     """ 
@@ -26,3 +26,17 @@ def contact_us(request, *args, **kwargs):
             form = ContactForm()
 
     return render(request, 'other/contact_us.html', {'form': form})
+
+
+def featured_author(request):
+    """ 
+    A page on a promoted/featured author of the month
+    """
+    
+    featured = Featured.objects.filter(is_featured=True)
+
+    context = {
+        'featured_author': featured
+    }
+
+    return render(request, 'other/featured_author.html', context)

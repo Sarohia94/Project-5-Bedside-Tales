@@ -41,7 +41,8 @@ def all_products(request):
 
 def product_detail(request, product_id):
     """ 
-    A view to show individual product details and any reviews left by users
+    A view to show individual product details and 
+    to add and view reviews left by users
     """
 
     product = get_object_or_404(Product, pk=product_id)
