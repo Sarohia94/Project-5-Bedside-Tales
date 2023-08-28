@@ -1,0 +1,1 @@
+web: gunicorn bedside_tales.wsgi:application
