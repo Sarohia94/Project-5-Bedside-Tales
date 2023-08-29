@@ -33,6 +33,7 @@
                     </div>
                     <div class="row">
                         <div class="col">
+                            {% include "bag/bag_options.html" %}
                             <!-- Summary of bag content for display on small screens -->
                             <p class="text-color font-weight-bold mb-5 mt-3">A summary of your bag contents is below:</p>
                         </div>
@@ -123,7 +124,14 @@
 
 {% block postloadjs %}
 {{ block.super }}
+
 {% include 'products/includes/quantity_input_script.html' %}
+
+<script type="text/javascript">
+    $('.btt-link').click(function(e) {
+        window.scrollTo(0,0)
+    })
+</script>
 
 <script type="text/javascript">
     // Update quantity on click
