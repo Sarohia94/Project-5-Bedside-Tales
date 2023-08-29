@@ -218,3 +218,62 @@ Acceptance Criteria
 1. Personal and payment information required is clear and I feel secure in making the purchase.
 2. View an order confirmation after checkout.
 3. Recieve an email confirmation after completion.
+
+## Design
+
+The bootstrap template from the Boutique Ado walkthrough was used to help format the core website. Custom css styling and html was also used.
+
+* [Bootstrap template](https://startbootstrap.com/template/blog-home)
+
+### Colour Scheme
+
+The colour scheme was taken from [Coolors](https://coolors.co/). 
+
+It was based on the image used for the hero image on the landing page which I thought was charming and fun for Bedside Tales.
+
+The use of these colours have been consistently maintained throughout the website and checked for contrast to allow easy accessibility.
+
+![Colour palette for the website](docs/colourpalette.png)
+
+### Fonts
+
+[Google Fonts](https://fonts.google.com/) were used as below:
+
+* EB Garamond is used for the title.
+* Lato is used for the body of the text. 
+* San serif font is present as backup.
+
+### Imagery
+
+Images used were geared towards children to fit the theme and intention of the website, which is about selling books to children for great bed time reading.
+
+Hero image and placeholder featured image for post was taken from [here](https://discover.fiverr.com/wp-content/uploads/10a66f553b99010724e17138d3732e6fb098966a-854x576.png), the Favicon icon from [Pinterest](https://nl.pinterest.com/pin/367958232047536824/) and all book images were from [Waterstones](https://www.waterstones.com/).
+
+### Wireframes
+
+Wireframes were created for destop/laptop, tablet and mobile.
+
+* Home page wireframe can be found here for [desktop/laptop](docs/wireframes/laptop_desktop_blog_home.png), here for [tablet](docs/wireframes/tablet_blog_home.png) and here for [mobile](docs/wireframes/mobile_blog_home.png).
+
+* Book list page wireframe can be found here for [desktop/laptop](docs/wireframes/laptop_desktop_book_view.png), here for [tablet](docs/wireframes/tablet_book_view.png) and here for [mobile](docs/wireframes/mobile_book_list.png).
+
+* Book view page wireframe can be found here for [desktop/laptop](docs/wireframes/laptop_desktop_book_view.png), here for [tablet](docs/wireframes/tablet_book_view.png) and here for [mobile](docs/wireframes/mobile_book_view.png).
+
+
+### Database Model
+
+Principles of object-oriented programming was used throughout this project and Django’s class-based generic views. Django AllAuth was used for user authentication.
+
+3 custom models were developed for this project.
+
+![Custom database model 1](docs/custom__model1.png)
+
+![Custom database model 2](docs/custom__model2.png)
+
+![Custom database model 3](docs/custom__model3.png)
+
+The product models was made to incorporate CRUD functionality. This allows users to add, edit quantity or remove books from bag.
+
+The admin has CRUD functionality both from the live site and from the Django database via the Django admin page to add, edit or remove books from the site.
+
+- - -
