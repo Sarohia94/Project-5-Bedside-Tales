@@ -7,8 +7,8 @@ from wishlist.models import Wishlist
 
 
 def wishlist(request):
-    """ 
-    A view to show the user's wishlist 
+    """
+    A view to show the user's wishlist
     Requests login to access and displays error message
     """
 
@@ -31,7 +31,7 @@ def wishlist(request):
 
 def add_to_wishlist(request, product_id):
     """
-    Add book to wishlist view 
+    Add book to wishlist view
     Requests login to access and displays error message
     Prevents from adding same book twice with info message
     Success message for confirmation new book added
@@ -46,7 +46,7 @@ def add_to_wishlist(request, product_id):
         return redirect(reverse('account_login'))
 
     already_added = Wishlist.objects.filter(product=product,
-                                       user_profile=user).exists()
+                                            user_profile=user).exists()
     if already_added:
         messages.info(request, f'{product.title} is already in your Wishlist!')
         return redirect(reverse('product_detail', args=[product.id]))
@@ -60,8 +60,8 @@ def add_to_wishlist(request, product_id):
 
 
 def remove_from_wishlist(request, product_id):
-    """ 
-    Remove book from wishlist view 
+    """
+    Remove book from wishlist view
     Requests login to access and displays error message
     Prevents from adding same book twice
     Success message for new book added

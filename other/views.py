@@ -1,10 +1,11 @@
-from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.shortcuts import render, redirect, reverse
 from django.contrib import messages
 from .forms import ContactForm
-from .models import Featured, Author
+from .models import Featured
+
 
 def contact_us(request, *args, **kwargs):
-    """ 
+    """
     Contact us view for users
     """
 
@@ -19,7 +20,9 @@ def contact_us(request, *args, **kwargs):
             return redirect(reverse('home'))
         else:
             messages.error(
-                request, 'Error in submitting form, please ensure the form is valid.')
+                request,
+                'Error in submitting form, please ensure the form is valid.'
+                )
     else:
         form = ContactForm()
         if 'submitted' in request.GET:
@@ -29,10 +32,10 @@ def contact_us(request, *args, **kwargs):
 
 
 def featured_author(request):
-    """ 
+    """
     A page on a promoted/featured author of the month
     """
-    
+
     featured = Featured.objects.filter(is_featured=True)
 
     context = {

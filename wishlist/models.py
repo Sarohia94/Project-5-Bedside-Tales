@@ -4,7 +4,7 @@ from products.models import Product
 
 
 class Wishlist(models.Model):
-    """ 
+    """
     Wishlist model for registered users
     """
     user_profile = models.ForeignKey(UserProfile, null=True, blank=True,
@@ -15,4 +15,3 @@ class Wishlist(models.Model):
 
     def __str__(self):
         return f'({self.user_profile}) Wishlist'
-

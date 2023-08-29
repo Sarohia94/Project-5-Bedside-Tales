@@ -3,7 +3,7 @@ from products.models import Product, Author
 
 
 class Contact(models.Model):
-    """ 
+    """
     Contact Form model
     """
     name = models.CharField(max_length=250)
@@ -11,7 +11,6 @@ class Contact(models.Model):
     date = models.DateField(auto_now_add=True, blank=False, null=False)
     subject = models.CharField(max_length=250)
     message = models.TextField(max_length=2000)
-
 
     class Meta:
         ordering = ['-date']

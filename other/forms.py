@@ -6,7 +6,7 @@ class ContactForm(forms.ModelForm):
     """
     Contact Form for users
     """
-    
+
     class Meta:
         model = Contact
         fields = [

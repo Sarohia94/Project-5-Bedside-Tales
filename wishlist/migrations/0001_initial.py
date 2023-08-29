@@ -17,10 +17,18 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Wishlist',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.BigAutoField(
+                    auto_created=True, primary_key=True,
+                    serialize=False, verbose_name='ID')),
                 ('added', models.DateField(auto_now_add=True)),
-                ('product', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='products.product')),
-                ('user_profile', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='profiles.userprofile')),
+                ('product', models.ForeignKey(
+                        blank=True, null=True,
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to='products.product')),
+                ('user_profile', models.ForeignKey(
+                    blank=True, null=True,
+                    on_delete=django.db.models.deletion.CASCADE,
+                    to='profiles.userprofile')),
             ],
         ),
     ]

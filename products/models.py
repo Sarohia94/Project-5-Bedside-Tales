@@ -1,3 +1,4 @@
+from django.shortcuts import reverse
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -36,9 +37,8 @@ class Product(models.Model):
     """
     A model to define the book products
     """
-    category = models.ForeignKey("Category", null=True, blank=True, 
-                                    on_delete=models.SET_NULL
-                                    )
+    category = models.ForeignKey("Category", null=True, blank=True,
+                                 on_delete=models.SET_NULL)
     sku = models.CharField(max_length=250, null=True, blank=True, unique=True)
     title = models.CharField(max_length=250, unique=True)
     author = models.ForeignKey(Author, on_delete=models.CASCADE)

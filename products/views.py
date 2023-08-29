@@ -7,8 +7,8 @@ from .forms import ReviewForm, ProductForm, AuthorForm
 
 
 def all_products(request):
-    """ 
-    A view to show all products, including sorting and search queries 
+    """
+    A view to show all products, including sorting and search queries
     """
     products = Product.objects.all()
 
@@ -24,10 +24,13 @@ def all_products(request):
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
-                messages.error(request, "You didn't enter any search criteria!")
+                messages.error(
+                    request, "You didn't enter any search criteria!"
+                    )
                 return redirect(reverse('products'))
-            
-            queries = Q(title__icontains=query) | Q(description__icontains=query)
+
+            queries = Q(title__icontains=query) | Q(
+                description__icontains=query)
             products = products.filter(queries)
 
     context = {
@@ -40,8 +43,8 @@ def all_products(request):
 
 
 def product_detail(request, product_id):
-    """ 
-    A view to show individual product details and 
+    """
+    A view to show individual product details and
     to add and view reviews left by users
     """
 
@@ -64,15 +67,15 @@ def product_detail(request, product_id):
             messages.success(request, "Review added!")
             return redirect('product_detail', product_id=product_id)
         else:
-            messages.error(request,'Error in form')
-    
+            messages.error(request, 'Error in form')
+
     return render(request, 'products/product_detail.html', context)
 
 
 @login_required
 def add_product(request):
-    """ 
-    Add a product to the store 
+    """
+    Add a product to the store
     """
 
     if not request.user.is_superuser:
@@ -86,7 +89,10 @@ def add_product(request):
             messages.success(request, 'Successfully added product!')
             return redirect(reverse('product_detail', args=[product.id]))
         else:
-            messages.error(request, 'Failed to add product. Please ensure the form is valid.')
+            messages.error(
+                request,
+                'Failed to add product. Please ensure the form is valid.'
+                )
     else:
         form = ProductForm()
 
@@ -101,7 +107,7 @@ def add_product(request):
 @login_required
 def add_author(request):
     """
-    Add an Author to the store 
+    Add an Author to the store
     """
 
     if not request.user.is_superuser:
@@ -122,7 +128,7 @@ def add_author(request):
             )
     else:
         form = AuthorForm()
-    
+
     template = "products/add_author.html"
     context = {
         "form": form,
@@ -133,8 +139,8 @@ def add_author(request):
 
 @login_required
 def edit_product(request, product_id):
-    """ 
-    Edit a product in the store 
+    """
+    Edit a product in the store
     """
 
     if not request.user.is_superuser:
@@ -149,7 +155,10 @@ def edit_product(request, product_id):
             messages.success(request, 'Successfully updated product!')
             return redirect(reverse('product_detail', args=[product.id]))
         else:
-            messages.error(request, 'Failed to update product. Please ensure the form is valid.')
+            messages.error(
+                request,
+                'Failed to update product. Please ensure the form is valid.'
+                )
     else:
         form = ProductForm(instance=product)
         messages.info(request, f'You are editing {product.title}')
@@ -165,8 +174,8 @@ def edit_product(request, product_id):
 
 @login_required
 def delete_product(request, product_id):
-    """ 
-    Delete a product from the store 
+    """
+    Delete a product from the store
     """
 
     if not request.user.is_superuser:
@@ -176,5 +185,5 @@ def delete_product(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
     product.delete()
     messages.success(request, 'Product deleted!')
-    
+
     return redirect(reverse('products'))
