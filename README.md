@@ -49,3 +49,172 @@ The site is deployed to Heroku, uses Amazon S3 for cloud storage, ElephantSQL fo
 * [Credits](#Credits)
   * [Code](#Code)
   * [Acknowledgements](#Acknowledgements)
+
+
+## User Experience (UX)
+
+### User & Blog Goals
+
+#### Targeted User Goals:
+* A user wanting buy children's books.
+* A user who want to able to view books by popular children's book genres.
+* A user that can make use of additional features the site offers such as the wishlist.
+
+#### Site User Goals:
+* For users to be able to interact with the site intuitively.
+* For users to be able to access and view all books.
+* For users to be able to clearly see the title, author, price and description.
+* For users to be able to create an account to access additional functionality.
+* For users to be able to contact us and sign up to a newsletter.
+* For registered users to be able to log in and out of their account.
+* For registered users to be able to leave a review on all posts.
+* For registered users to be able add and delete books to their wishlist.
+* For registered users to be able to access their order history and save default info.
+
+
+### Agile Methodology
+
+This blog was developed with agile planning. Each individual user feature was split into a user story. Each user story was defined and included an acceptance criteria. The acceptance criteria were tasks to mark as complete to complete the user story. 
+
+Related user stories achieving a certain functionality of the site were grouped together in to Epics.
+
+Each user story was labeled as Must Have, Should Have and Could Have to help prioritise which were most important to implement.
+
+As the site evolved, tasks were added or updated, based on the changing needs / understanding of the what the site should provide the user.
+
+This was implemented through Github Issues and the Kanban board in the projects view in Github, the project was divided into a few different sections:
+
+* To Do - All user stories were initially entered in the 'To Do' column
+* In Progress - During development stories were moved into the 'In Progress' column
+* Done - On completion they get moved into the 'Done' column
+* Future - Any 'could have' stories with features that I can look to implement at a later date, where due to time restraints I was unable to work on.
+
+Please find my Kanban Board with my user stories [here](https://github.com/users/Sarohia94/projects/4/views/1).
+
+### Epics & User Stories
+
+**Epic 1: Website UI Features**
+
+User Story #1
+
+Search bar (must have) - As a Site User I can use a search bar to search for a book so that I see what I've searched for and the number of results.
+
+Acceptance Criteria:
+1. No of results displayed
+2. Clickable items matching search results
+
+User Story #2
+
+View a list of books (must have) - As a site user I can view a list of books so that I can easily choose a book to look at
+
+Acceptance Criteria
+
+1. Books categorised and listed by genre
+2. Featured book highlighted
+3. Offers for purchasing entire book sets
+
+User Story #3
+
+View book detail (must have) - As a site user I can click on a book item listed so that I can view further detail.
+
+Acceptance Criteria
+
+1. Clicking on book item listed opens a page where user can view further info on the product.
+2. Option to add to bag or return to shop.
+
+User Story #4
+
+View promoted author (must have) - As a site user, I can find information on a promoted author/book so that I can make a decision to purchase.
+
+Acceptance Criteria
+
+1. Able to navigate to and view page on the promoted author/book
+2. Able to learn something about the book(s) and author and navigate back to shop to make a purchase
+
+User Story #5
+
+Notifications (must have) - As a site user, I can view notifications in response to my actions so that I get confirmation my action has been made and acknowledged by the site.
+
+Acceptance Criteria
+
+1. Notfications appear in response to activity as appropriate
+2. There is a option to dismiss notification or it times out appropriately
+
+User Story #6
+
+Contact us form (should have) - As a site user, I can contact the store so that if I have a query I can raise it from the site.
+
+Acceptance Criteria
+
+1. Able to navigate to a contact us form
+2. Able to submit the form and get confirmation this was sent
+
+User Story #7
+
+Social media & newsletter (must have) - As a site user, I can view the store's social accounts and sign up to the newsletter so that keep up with updates and get benefits.
+
+Acceptance Criteria
+
+1. I can access the links and they open in a separate tab.
+2. I can subscribe to the newsletter
+
+**Epic 2: Registraytion & Profile Features**
+
+User Story #8 
+
+Account Registration (must have) - As a site user I can register an account so that I can log in, have my account details saved and access other features.
+
+Acceptance Criteria
+
+1. As a site user, I intuitively know where to go to sign up and I can easily register my account without issue
+2. Email confirmation on registration being successful
+3. I can view my order history and details such as name, address and bank info are saved as default so I can make quicker purchases
+4. Option to amend my profile details
+
+User Story #9
+
+Login & Logout (must have) - As a registered user, I can login and logout of the site so that I can have access to my account.
+
+Acceptance Criteria
+
+1. As a registered user, I can login and out successfully
+
+User Story #10
+
+Leave a book review (must have) - As a registered site user I can leave a review on a book.
+
+Acceptance Criteria
+
+1. As a logged-in user I can leave review on a book so that I can leave feedback for other users.
+2. As a logged-in user I can edit and delete a review I've left.
+
+User Story #11
+
+Wishlist for registered users (should have) - As a registered site user, I can add books to my wish list and easily view this on my profile.
+
+Acceptance Criteria
+
+1. As a logged-in user I can view a page with a view of all books added to my wish list.
+2. As a logged-in user I can add to books on the site to my wish list and remove them too.
+
+**Epic 3: Checkout Features**
+
+User Story #12
+
+Book items added to bag (must have) - As a site user, I can add books to my shopping bag so that I can make a purchase.
+
+Acceptance Criteria
+
+1. I can choose a quantity for each book to add to shopping bag.
+2. I can view these added items in my shopping bag with key details and total displayed.
+3. I can easily make changes to my shopping bag (changes to quantity or removing items) before checking out.
+
+User Story #13
+
+Payment (must have) - As a site user, I can easily enter my payment information so that I can checkout with no issues.
+
+Acceptance Criteria
+
+1. Personal and payment information required is clear and I feel secure in making the purchase.
+2. View an order confirmation after checkout.
+3. Recieve an email confirmation after completion.
