@@ -339,6 +339,11 @@ input[name='q']::placeholder {
     width: 80%;
 }
 
+/* footer */
+footer {
+    margin-top: auto;
+}
+
 /* -------------------------------- Media Queries */
 
 /* Slightly larger container on xl screens */
