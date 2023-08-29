@@ -2,7 +2,7 @@
 
 Bedside Tales is an online children's book shop developed using Bootstrap, Django, Python, HTML, CSS and JavaScript.
 
-Bedside Tales is designed for those who wish to find appropriate, inspiring bed time reading for children, as such it is a business to customer e-commerce site.
+Bedside Tales is a business to customer e-commerce site (B2C). It is designed for those who wish to find appropriate, inspiring bed time reading for children.
 
 The site is deployed to Heroku, uses Amazon S3 for cloud storage, ElephantSQL for the database and Stripe for payment processing.
 
@@ -277,3 +277,9 @@ The product models was made to incorporate CRUD functionality. This allows users
 The admin has CRUD functionality both from the live site and from the Django database via the Django admin page to add, edit or remove books from the site.
 
 - - -
+
+## Features
+
+Below are the main features the user will come across 
+
+1. 

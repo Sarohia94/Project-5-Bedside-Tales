@@ -144,11 +144,11 @@
                 </div>
                 {% endfor %}
             </div>
+            {% else %}
+            <!-- Message displays if there are no available reviews -->
+            <p>No reviews available for this book yet.</p>
+            {% endif %}
         </div>
-        {% else %}
-        <!-- Message displays if there are no available reviews -->
-        <p>No reviews available for this book yet.</p>
-        {% endif %}
         {% endblock %}
     </div>
 </div>
