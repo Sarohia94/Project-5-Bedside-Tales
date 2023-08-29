@@ -351,8 +351,15 @@ input[name='q']::placeholder {
     .wishlist-table,
     .wishlist-td[data-label] {
         display: flex;
-        font-weight: bold;
         border-bottom: 1px solid #fff;
+    }
+
+    .h5, h5 {
+        font-size: 0.8rem;
+    }
+
+    .h6, h6 {
+        font-size: 0.7rem;
     }
 
     .wishlist-table .wishlist-td[data-label]::before {
