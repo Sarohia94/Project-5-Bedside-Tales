@@ -51,9 +51,9 @@
         <div class="container">
             {% if wishlist %}
             <div class="table-responsive rounded-0">
-                <table class="table table-lg text-align-center">
-                    <thead class="text-color">
-                        <tr>
+                <table class="wishlist-table table table-lg text-align-center">
+                    <thead class="wishlist-thead text-color">
+                        <tr class="wishlist-tr">
                             <th scope="col">Image</th>
                             <th scope="col">Title</th>
                             <th scope="col">Price</th>
@@ -64,7 +64,7 @@
                     <tbody>
                         {% for product in wishlist %}
                         <tr>
-                            <td>
+                            <td class="wishlist-tr">
                                 {% if product.product.image %}
                                 <img class="img-fluid rounded img-thumbnail" src="{{ product.product.image.url }}"
                                     alt="{{ product.product.title }}">
