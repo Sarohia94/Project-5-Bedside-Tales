@@ -13,6 +13,7 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from .views import handler404
 from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
@@ -29,3 +30,5 @@ urlpatterns = [
     path('wishlist/', include('wishlist.urls')),
     path('other/', include('other.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+# custom 404 page
+handler404 = 'bedside_tales.views.handler404'
