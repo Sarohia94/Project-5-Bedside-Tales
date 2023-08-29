@@ -61,11 +61,10 @@ a:hover {
     background: #084A47 !important;
 }
 
-
-/*box over hero image for s-title and tagline*/
+/*box over hero image for tagline*/
 #text-cover {
     letter-spacing: 2px;
-    width: 400px;
+    width: 350px;
     height: 250px;
     background-color: rgba(108, 120, 14, .6);
     padding: 20px;
@@ -342,6 +341,15 @@ input[name='q']::placeholder {
 /* footer */
 footer {
     margin-top: auto;
+}
+
+/* mailchimp */
+#mc_embed_signup {
+    background: #fff;
+    false;
+    clear: left;
+    font: 14px Helvetica, Arial, sans-serif;
+    width: 600px;
 }
 
 /* -------------------------------- Media Queries */
