@@ -1,0 +1,8 @@
+User-agent: *
+
+Disallow: /admin/
+Disallow: /profile/
+Disallow: /bag/
+Disallow: /checkout/
+
+Sitemap: https://project-5-bedside-tales-0c52d874d839.herokuapp.com/sitemap.xml
