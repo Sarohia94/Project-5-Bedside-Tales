@@ -1,39 +1,51 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Bedside Tales
 
-Welcome,
+Bedside Tales is an online children's book shop developed using Bootstrap, Django, Python, HTML, CSS and JavaScript.
 
-This is the Code Institute student template for Codeanywhere. If you are using Gitpod then you need [this template](https://github.com/Code-Institute-Org/gitpod-full-template) instead.  We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+Bedside Tales is designed for those who wish to find appropriate, inspiring bed time reading for children, as such it is a business to customer e-commerce site.
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Codeanywhere and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **July 26th, 2023**
+The site is deployed to Heroku, uses Amazon S3 for cloud storage, ElephantSQL for the database and Stripe for payment processing.
 
-## Codeanywhere Reminders
 
-To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere, in the terminal, type:
+[Go to Bedside Tales!](https://project-5-bedside-tales-0c52d874d839.herokuapp.com/)
 
-`python3 -m http.server`
+![Shown on a range of devices](docs/amiresponsive.png)
 
-A button should appear to click: _Open Preview_ or _Open Browser_.
+* [User Experience (UX)](#User-Experience-(UX))
+  * [User & Blog Goals](#User-&-Blog-Goals)
+  * [Agile Methodology](#Agile-Methodology)
+  * [Epics & User Stories](#Epics-&-User-Stories)
 
-To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere with no-cache, you can use this alias for `python3 -m http.server`.
+* [Design](#Design)
+  * [Colour Scheme](#Colour-Scheme)
+  * [Fonts](#Fonts)
+  * [Imagery](#Imagery)
+  * [Wireframes](#Wireframes)
+  * [Database Model](#Database-Model)
 
-`http_server`
+* [Features](#Features)
+  * [Future features](#Future-features)
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+* [Security Features & Defensive Design](#Security-Features-&-Defensive-Design)
 
-A button should appear to click: _Open Preview_ or _Open Browser_.
+* [Technologies Used](#Technologies-Used)
+  * [Languages Used](#Languages-Used)
+  * [Django](#Django)
+  * [Frameworks, Libraries & Programs Used](#Frameworks,-Libraries-&-Programs-Used)
 
-In Codeanywhere you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+* [Testing](#Testing)
 
-To log into the Heroku toolbelt CLI:
-
-1. Log in to your Heroku account and go to _Account Settings_ in the menu under your avatar.
-2. Scroll down to the _API Key_ and click _Reveal_
-3. Copy the key
-4. In Codeanywhere, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
-
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
-
----
-
-Happy coding!
+* [Deployment](#Deployment)
+  * [Create the live database which can be accessed by Heroku](#create-the-live-database-which-can-be-accessed-by-heroku)
+  * [Heroku app setup:](#heroku-app-setup)
+  * [Prepare env.py and settings.py files](#prepare-envpy-and-settingspy-files)
+  * [Create files / directories](#create-files--directories)
+  * [Update Heroku Config Vars](#update-heroku-config-vars)
+  * [Deploy](#deploy)
+  * [Local Deployment](#Local-Deployment)
+  * [Remote Deployment](#Remote-Deployment)
+  * [Deploy project to Heroku](#Deploy-project-to-Heroku)
+  
+* [Credits](#Credits)
+  * [Code](#Code)
+  * [Acknowledgements](#Acknowledgements)
