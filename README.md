@@ -264,6 +264,8 @@ Wireframes were created for destop/laptop, tablet and mobile.
 
 Principles of object-oriented programming was used throughout this project and Django’s class-based generic views. Django AllAuth was used for user authentication. 
 
+The project was created using the Django framework. Multiple apps were created; bag, checkout, home, other, products, profiles and wishlist.
+
 3 custom models were developed for this project. Review model allows registered users to leave a review , Contact model for users to get in touch and Wishlist model for registered users to add or remove books from their wishlist. The other models were from the Boutique Ado walkthrough.
 
 ![Custom database model](docs/custom__model.png)
@@ -278,6 +280,46 @@ The admin has CRUD functionality both from the live site and from the Django dat
 
 See [TESTING.md](https://github.com/Sarohia94/Project-5-Bedside-Tales/blob/main/TESTING.md) document for features and feature testing.
 
+### Future features
 
+Due to time constraints I wasn't able to achieve all the features initially in mind during the planning phase. Future features are as follows:
 
+* Registered users should be able to edit and delete their own reviews
+* The Featured author of the month should have a direct link to the book in the shop and other media to make it more engaging.
+* Make user's reveiws and author's promoted books in to a feature to be displayed on the home or book pages.
 
+- - -
+
+## Security Features & Defensive Design
+
+I have tried to use defensive programming throughout the site to prevent users accessing pages, submitting requests if they don't have the relevant permissions. 
+
+#### User Authentication
+
+* Django's login_required is used to ensure that any requests to access secure pages by non-authenticated or non-admin users, are redirected to the login page.
+
+* Check for authenticated users in templates by using the if statement i.e. {% if user.is_authenticated %}, before allowing access (adding reviews) or visibility to links (My Account or Wishlist page).
+
+#### Form Validation
+
+* Messages are present for fields forms where validation is required. If a user attempts to sign up or login without completing the relevant fields a message is displayed. User will not be able to sign in or login until all relevant fields are filled in.
+
+* Similary when submitting an order if the required fields are not filled in then the user will be requested to ensure the form is completed and valid. This will not submit until all required fields are completed properly.
+
+See [TESTING.md](https://github.com/Sarohia94/Project-4-Baking-Blog/blob/main/TESTING.md) document.
+
+#### Database Security
+
+The database url and secret key are stored in the env.py file to prevent unwanted connections to the database.
+
+Cross-Site Request Forgery (CSRF) tokens were used on all forms throughout this site.
+
+#### Custom Error Page
+
+This was created for when a user is trying to access a page that is not valid. This will give the user a link to return home.
+
+* 404 Error - The requested page doesn't exist! 
+
+See [TESTING.md](https://github.com/Sarohia94/Project-4-Baking-Blog/blob/main/TESTING.md) document.
+
+- - -
