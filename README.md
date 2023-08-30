@@ -262,19 +262,15 @@ Wireframes were created for destop/laptop, tablet and mobile.
 
 ### Database Model
 
-Principles of object-oriented programming was used throughout this project and Django’s class-based generic views. Django AllAuth was used for user authentication.
+Principles of object-oriented programming was used throughout this project and Django’s class-based generic views. Django AllAuth was used for user authentication. 
 
-3 custom models were developed for this project.
+3 custom models were developed for this project. Review model allows registered users to leave a review , Contact model for users to get in touch and Wishlist model for registered users to add or remove books from their wishlist. The other models were from the Boutique Ado walkthrough.
 
-![Custom database model 1](docs/custom__model1.png)
+![Custom database model](docs/custom__model.png)
 
-![Custom database model 2](docs/custom__model2.png)
+The product models was made to later incorporate CRUD functionality. This allows users to add, edit quantity or remove books from bag. 
 
-![Custom database model 3](docs/custom__model3.png)
-
-The product models was made to incorporate CRUD functionality. This allows users to add, edit quantity or remove books from bag.
-
-The admin has CRUD functionality both from the live site and from the Django database via the Django admin page to add, edit or remove books from the site.
+The admin has CRUD functionality both from the live site and from the Django database via the Django admin page to add, edit or remove books from the site. A custom Author model had to made as the existing Product model had a limitation that was not observed until later that did not allow for Authors to be added from the same model.
 
 - - -
 
