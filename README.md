@@ -23,7 +23,7 @@ The site is deployed to Heroku, uses Amazon S3 for cloud storage, ElephantSQL fo
   * [Wireframes](#Wireframes)
   * [Database Model](#Database-Model)
 
-* [Features](#Features)
+* [Features & Feature Testing](#Features)
   * [Future features](#Future-features)
 
 * [Security Features & Defensive Design](#Security-Features-&-Defensive-Design)
@@ -278,8 +278,10 @@ The admin has CRUD functionality both from the live site and from the Django dat
 
 - - -
 
-## Features
+## Features & Features Testing
 
-Below are the main features the user will come across 
+See [TESTING.md](https://github.com/Sarohia94/Project-5-Bedside-Tales/blob/main/TESTING.md) document for features and feature testing.
 
-1. 
+
+
+

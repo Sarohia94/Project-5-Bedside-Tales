@@ -182,6 +182,10 @@ input[name='q']::placeholder {
     padding: 30px;
 }
 
+small {
+    font-size: .80em;
+}
+
 /* ------------------------------- bootstrap toasts */
 
 .message-container {
