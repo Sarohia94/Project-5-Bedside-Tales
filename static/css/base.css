@@ -182,7 +182,7 @@ input[name='q']::placeholder {
     padding: 30px;
 }
 
-small {
+.small {
     font-size: .80em;
 }
 

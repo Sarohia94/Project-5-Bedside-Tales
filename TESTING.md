@@ -142,6 +142,11 @@ Payment is processed using stripe. A blue screen overlay with a spinner is displ
 
 ![Feature 25](docs/features/feature25.png)
 
+26. There is a scroll to top arrow button on the shopping bag and book list page to for easy navigation.
+
+27. Finally there is "Book Management" under "My Account" for admin users who can add a book to the site from the site and also add a new author (custom models). On each book in the book shop the admin user will be able to edit or remove the book from the site as well as the admin.
+
 - - -
 
 ## Issues
+
