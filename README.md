@@ -323,3 +323,49 @@ This was created for when a user is trying to access a page that is not valid. T
 See [TESTING.md](https://github.com/Sarohia94/Project-4-Baking-Blog/blob/main/TESTING.md) document.
 
 - - -
+
+## Technologies Used
+
+### Languages Used
+
+HTML, CSS, Javascript, Django and Python.
+
+### Django 
+Django framework was used in this project.
+* Gunicorn - as the server for Heroku.
+* Amazon Web Services (AWS) - to host the static files and media for the site.
+* Dj_database_url - to parse the database URL from the environment variables in Heroku.
+* Psycopg2 - as an adaptor for Python and PostgreSQL databases.
+* Allauth - for authentication, registration, account management.
+* Crispy forms - provides a tag and filter that lets you quickly render forms
+* Pillow - python image processing library. To enable images to be viewed with the product model.
+* Stripe - python web framework to set up payment processing
+* Django Countries - to use a drop-down list of Countries to choose from.
+* JQuery code library.
+* Boto3 - to connect Django to AWS and enable static files storage.
+* Django-Storages - to connect Django to AWS.
+
+### Frameworks, Libraries & Programs Used
+* [Am I responsive?](https://ui.dev/amiresponsive) - to show across a range of devices.
+* Git - for version control. 
+* GitHub - to save and store the code pushed from Git.
+* GitPod - using GitPod terminal to commit to Git and push to GitHub.
+* GitHub Projects - to support the Agile development of the website.
+* Balsamic - to create the wireframes when designing the website.
+* Dev Tools - for testing and troubleshooting.
+* [Google Fonts](https://fonts.google.com/) - to import font to apply on the website.
+* [Font Awesome](https://fontawesome.com/) - to add icons.
+* [Wave](https://wave.webaim.org/) - to test web accessibility.
+* [W3C](https://validator.w3.org/) - HTML validator.
+* [Jigsaw](https://jigsaw.w3.org/css-validator/) - CSS validator.
+* [Tiny PNG](https://tinypng.com/) - to compress images.
+* [Responsive design checker](https://responsivedesignchecker.com/) - to check responsive design for a variety of screen sizes.
+* [Favicon.io](https://favicon.io/favicon-generator/) - to creat favicon icon for the website.
+* Django - a high-level Python web framework that encourages rapid development
+* Bootstrap - a framework for building responsive, mobile-first sites.
+* Heroku - used to deploy and host the live project.
+* PostgreSQL - database used through heroku.
+* ElephantSQL - PostgreSQL database hosting of the project.
+* LucidChart - ERD Design and layout software.
+
+- - -
