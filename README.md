@@ -4,7 +4,7 @@ Bedside Tales is an online children's book shop developed using Bootstrap, Djang
 
 Bedside Tales is a business to customer e-commerce site (B2C). It is designed for those who wish to find appropriate, inspiring bed time reading for children.
 
-The site is deployed to Heroku, uses Amazon S3 for cloud storage, ElephantSQL for the database and Stripe for payment processing.
+The site is deployed to Heroku. It uses Amazon S3 for cloud storage, ElephantSQL for the database and Stripe for payment processing.
 
 
 [Go to Bedside Tales!](https://project-5-bedside-tales-0c52d874d839.herokuapp.com/)
@@ -13,6 +13,7 @@ The site is deployed to Heroku, uses Amazon S3 for cloud storage, ElephantSQL fo
 
 * [User Experience (UX)](#User-Experience-(UX))
   * [User & Blog Goals](#User-&-Blog-Goals)
+  * [Business model](#Business-model)
   * [Agile Methodology](#Agile-Methodology)
   * [Epics & User Stories](#Epics-&-User-Stories)
 
@@ -26,7 +27,16 @@ The site is deployed to Heroku, uses Amazon S3 for cloud storage, ElephantSQL fo
 * [Features & Feature Testing](#Features)
   * [Future features](#Future-features)
 
+* [Marketing Stratergy](#Marketing-Stratergy)
+  * [SEO](#seo)
+  * [Social Media](#social-media)
+  * [Email](#email)
+
 * [Security Features & Defensive Design](#Security-Features-&-Defensive-Design)
+  * [User Authentication](#User-Authentication)
+  * [Form Validation](#Form-Validation)
+  * [Database Security](#Database-Security)
+  * [Custom Error Page](#Custom-Error-Page)
 
 * [Technologies Used](#Technologies-Used)
   * [Languages Used](#Languages-Used)
@@ -36,29 +46,32 @@ The site is deployed to Heroku, uses Amazon S3 for cloud storage, ElephantSQL fo
 * [Testing](#Testing)
 
 * [Deployment](#Deployment)
-  * [Create the live database which can be accessed by Heroku](#create-the-live-database-which-can-be-accessed-by-heroku)
-  * [Heroku app setup:](#heroku-app-setup)
-  * [Prepare env.py and settings.py files](#prepare-envpy-and-settingspy-files)
   * [Create files / directories](#create-files--directories)
+  * [Create the live database on ElephantSQL which can be accessed by Heroku](#create-the-live-database-on-ElephantSQL-which-can-be-accessed-by-heroku)
+  * [Heroku app setup](#heroku-app-setup)
+  * [Prepare env.py and settings.py files](#prepare-envpy-and-settingspy-files)
+  * [Connect to Stripe](#Connect-to-Stripe)
+  * [Connect to AWS](#Connect-to-AWS)
+  * [Connect Django to S3 in AWS](#Connect-Django-to-S3-in-AWS)
   * [Update Heroku Config Vars](#update-heroku-config-vars)
   * [Deploy](#deploy)
   * [Local Deployment](#Local-Deployment)
   * [Remote Deployment](#Remote-Deployment)
-  * [Deploy project to Heroku](#Deploy-project-to-Heroku)
-  
+
 * [Credits](#Credits)
   * [Code](#Code)
   * [Acknowledgements](#Acknowledgements)
 
+- - -
 
 ## User Experience (UX)
 
 ### User & Blog Goals
 
 #### Targeted User Goals:
-* A user wanting buy children's books.
-* A user who want to able to view books by popular children's book genres.
-* A user that can make use of additional features the site offers such as the wishlist.
+* A user wanting to buy children's books.
+* A user who wants to be able to view books by popular children's book genres.
+* A user that can make use of additional features the site offers such as the wishlist and contact us form.
 
 #### Site User Goals:
 * For users to be able to interact with the site intuitively.
@@ -67,7 +80,7 @@ The site is deployed to Heroku, uses Amazon S3 for cloud storage, ElephantSQL fo
 * For users to be able to create an account to access additional functionality.
 * For users to be able to contact us and sign up to a newsletter.
 * For registered users to be able to log in and out of their account.
-* For registered users to be able to leave a review on all posts.
+* For registered users to be able to leave a review on all books.
 * For registered users to be able add and delete books to their wishlist.
 * For registered users to be able to access their order history and save default info.
 
@@ -85,7 +98,7 @@ Each user story was labeled as Must Have, Should Have and Could Have to help pri
 
 As the site evolved, tasks were added or updated, based on the changing needs / understanding of the what the site should provide the user.
 
-This was implemented through Github Issues and the Kanban board in the projects view in Github, the project was divided into a few different sections:
+This was implemented through Github Issues and the Kanban board in the projects view in Github. The project was divided into a few different sections:
 
 * To Do - All user stories were initially entered in the 'To Do' column
 * In Progress - During development stories were moved into the 'In Progress' column
@@ -100,7 +113,7 @@ Please find my Kanban Board with my user stories [here](https://github.com/users
 
 User Story #1
 
-Search bar (must have) - As a Site User I can use a search bar to search for a book so that I see what I've searched for and the number of results.
+Search bar (must have) - As a Site User I can use a search bar to search for a book so that I see results of what I've searched for and the number of results.
 
 Acceptance Criteria:
 1. No of results displayed
@@ -112,9 +125,9 @@ View a list of books (must have) - As a site user I can view a list of books so 
 
 Acceptance Criteria
 
-1. Books categorised and listed by genre
-2. Featured book highlighted
-3. Offers for purchasing entire book sets
+1. Books categorised and listed by genres
+2. Book image, name, author, genre and price are clear
+3. Able to click and view individual book detail
 
 User Story #3
 
@@ -140,8 +153,8 @@ Notifications (must have) - As a site user, I can view notifications in response
 
 Acceptance Criteria
 
-1. Notfications appear in response to activity as appropriate
-2. There is a option to dismiss notification or it times out appropriately
+1. Notifications appear in response to activity as appropriate
+2. There is a option to dismiss notification 
 
 User Story #6
 
@@ -161,7 +174,7 @@ Acceptance Criteria
 1. I can access the links and they open in a separate tab.
 2. I can subscribe to the newsletter
 
-**Epic 2: Registraytion & Profile Features**
+**Epic 2: Registration & Profile Features**
 
 User Story #8 
 
@@ -189,7 +202,6 @@ Leave a book review (must have) - As a registered site user I can leave a review
 Acceptance Criteria
 
 1. As a logged-in user I can leave review on a book so that I can leave feedback for other users.
-2. As a logged-in user I can edit and delete a review I've left.
 
 User Story #11
 
@@ -222,11 +234,11 @@ Acceptance Criteria
 2. View an order confirmation after checkout.
 3. Recieve an email confirmation after completion.
 
+- - -
+
 ## Design
 
-The bootstrap template from the Boutique Ado walkthrough was used to help format the core website. Custom css styling and html was also used.
-
-* [Bootstrap template](https://startbootstrap.com/template/blog-home)
+The bootstrap template from the CI Boutique Ado walkthrough was used to help format the core website. Custom css styling and html was also used.
 
 ### Colour Scheme
 
@@ -271,11 +283,11 @@ The project was created using the Django framework. Multiple apps were created; 
 
 3 custom models were developed for this project. Review model allows registered users to leave a review , Contact model for users to get in touch and Wishlist model for registered users to add or remove books from their wishlist. The other models were from the Boutique Ado walkthrough.
 
-![Custom database model](docs/custom__model.png)
+![Custom database model](docs/custom_model.png)
 
-The product models was made to later incorporate CRUD functionality. This allows users to add, edit quantity or remove books from bag. 
+The product models was made to incorporate CRUD functionality. This allows users to add, edit quantity or remove books from bag. 
 
-The admin has CRUD functionality both from the live site and from the Django database via the Django admin page to add, edit or remove books from the site. A custom Author model had to made as the existing Product model had a limitation that was not observed until later that did not allow for Authors to be added from the same model.
+The admin has CRUD functionality both from the live site and from the Django database via the Django admin page to add, edit or remove books from the site. A custom Author model had to made as the existing Product model had a limitation that was not observed until later that did not allow for new Authors to be added from the same form.
 
 - - -
 
@@ -289,7 +301,33 @@ Due to time constraints I wasn't able to achieve all the features initially in m
 
 * Registered users should be able to edit and delete their own reviews
 * The Featured author of the month should have a direct link to the book in the shop and other media to make it more engaging.
-* Make user's reveiws and author's promoted books in to a feature to be displayed on the home or book pages.
+* Make user's reviews and author's promoted books in to a feature to be displayed on the home or book pages.
+
+- - -
+
+## Marketing Stratergy
+
+Employ SEO, Social Media and Email strategies to market Bedside Tales.
+
+### SEO
+
+Achieved via meta tags; meta description of content and key search words in base file. This is to optimize the website's visibility and improve search engine performance. The keywords will attract both search engines and users. In addition to this, sitemap.xml and robots.txt files are also included. Search engines use the xml file to help it understand the website's structure and how the pages link to each other. On the other hand the txt file tells the search engines where they aren't allowed to go on a website. These both improve SEO ranking for the website.
+
+### Social Media
+
+Achieved via a [Facebook business page](https://www.facebook.com/profile.php?id=61550751631784) as it has the largest number of users and the widest demographic.
+
+![Feature 6a](docs/features/feature6a.jpeg)
+
+![Feature 6b](docs/features/feature6b.jpeg)
+
+### Email
+
+Achieved via email subscription to a newsletter, powered by MailChimp. 
+
+This is to provide additional benefit to subscribers by providing special offers, discounts and interesting articles on books and the authors to further engage the user if they sign up.
+
+The subscription form can be found in the footer. Any user may subscribe to receive a newsletter. Users only need to provide an email address in order to subscribe to make a quick and easy subscription to avoid users changing their mind. A user will receive feedback confirming their subscription, or if there is invalid input then there will be feedback requesting a valid email address is provided. (There is not an actual email sent to user since it is out of the scope of the project)
 
 - - -
 
@@ -297,13 +335,13 @@ Due to time constraints I wasn't able to achieve all the features initially in m
 
 I have tried to use defensive programming throughout the site to prevent users accessing pages, submitting requests if they don't have the relevant permissions. 
 
-#### User Authentication
+### User Authentication
 
 * Django's login_required is used to ensure that any requests to access secure pages by non-authenticated or non-admin users, are redirected to the login page.
 
 * Check for authenticated users in templates by using the if statement i.e. {% if user.is_authenticated %}, before allowing access (adding reviews) or visibility to links (My Account or Wishlist page).
 
-#### Form Validation
+### Form Validation
 
 * Messages are present for fields forms where validation is required. If a user attempts to sign up or login without completing the relevant fields a message is displayed. User will not be able to sign in or login until all relevant fields are filled in.
 
@@ -311,13 +349,13 @@ I have tried to use defensive programming throughout the site to prevent users a
 
 See [TESTING.md](https://github.com/Sarohia94/Project-4-Baking-Blog/blob/main/TESTING.md) document.
 
-#### Database Security
+### Database Security
 
 The database url and secret key are stored in the env.py file to prevent unwanted connections to the database.
 
 Cross-Site Request Forgery (CSRF) tokens were used on all forms throughout this site.
 
-#### Custom Error Page
+### Custom Error Page
 
 This was created for when a user is trying to access a page that is not valid. This will give the user a link to return home.
 
@@ -334,7 +372,7 @@ See [TESTING.md](https://github.com/Sarohia94/Project-4-Baking-Blog/blob/main/TE
 HTML, CSS, Javascript, Django and Python.
 
 ### Django 
-Django framework was used in this project.
+Django framework was used in this project:
 * Gunicorn - as the server for Heroku.
 * Amazon Web Services (AWS) - to host the static files and media for the site.
 * Dj_database_url - to parse the database URL from the environment variables in Heroku.
@@ -390,7 +428,7 @@ The site is deployed to Heroku, uses Amazon S3 for cloud storage, ElephantSQL fo
 
 ### Create the live database on ElephantSQL which can be accessed by Heroku:
 
-Heroku uses an ephemeral file system, which means it is wiped clean every time Heroku updates, or every time the app is redeployed. So Gunicorn will act as the web server for the project, and the project will also use a server-based database called 'Postgres' as the sqlite3 database that came with Django is only available for use in development. We need to create a new database that is suitable for production. It will be separated from the application, so it will survive even if the application server is destroyed.
+Heroku uses an ephemeral file system, which means it is wiped clean every time Heroku updates, or every time the app is redeployed. So Gunicorn will act as the web server for the project, and the project will also use a server-based database called 'Postgres' as the sqlite3 database that came with Django is only available for use in development. We need to create a new database that is suitable for production. As it will be separated from the application, it will survive even if the application server is destroyed.
 
 1. Assuming you already have an account, go to the ElephantSQL dashboard and click the create new instance button on the top right.
 2. Name the plan (i.e. your project name), select the tiny turtle plan (which is the free plan) and choose the region that is closest to you then click the review button.
@@ -398,33 +436,34 @@ Heroku uses an ephemeral file system, which means it is wiped clean every time H
 4. Go to the dashboard and select the database just created.
 5. Copy the URL.
 
-### Heroku app setup:
+### Heroku app setup
 
-1. From the Heroku dashboard, click the new button in the top right corner and select create new app.
+1. Assuming you already have an account, from the Heroku dashboard, click the new button in the top right corner and select create new app.
 2. Give your app a unique name, select the region that is closest to you and then click the create app button bottom left.
-3. Open the settings tab and create a new config var of DATABASE_URL and paste the database URL you copied from elephantSQL into the value (remove quotation marks from value).
+3. Open the settings tab and create a new config var of DATABASE_URL and paste the database URL you copied from ElephantSQL into the value (remove quotation marks from value).
 
 ### Prepare env.py and settings.py files
 
-1. Generate SECRET_KEY. Django automatically created a SECRET_KEY when we set up the project. For security change this secret key using a secret key generator. Go to miniwebtool's Django Secret Key Generator, click on the Generate Django Secret Key button and copy the value.
+1. Generate a SECRET_KEY. Django will have automatically created a SECRET_KEY but for security reasons change this secret key using a secret key generator. Go to miniwebtool's Django Secret Key Generator, click on the Generate Django Secret Key button and copy the value.
+
 Go to your Heroku app dashboard, open the settings tab and click Reveal Config Vars
 Create a new Config Var SECRET_KEY and give it the value of the newly generated secret key and then click add.
+
 Open your project's settings.py file and add:
+```python
 SECRET_KEY = os.environ.get('SECRET_KEY', '')
-2. In your GitPod workspace, create an env.py file in the main directory 
+```
+2. In your GitPod workspace, create an env.py file in the main directory and update as appropriate:
 ```python
  import os
 os.environ["DEVELOPMENT"] = "1"
 os.environ["DATABASE_URL"] = "ElephantSQL database URL"
 os.environ["SECRET_KEY"] = "value"
 ```
-3. Install the dj-database-url package version 0.5.0 and psycopg2 in the terminal with pip3 to allow us to parse the URL we have copied above to a format that Django can work with <br/>
+3. Install the dj-database-url package version 0.5.0 and psycopg2 in the terminal with pip3 to allow us to parse the URL we have copied above to a format that Django can work with:
 ```bash
 pip3 install dj_database_url==0.5.0 psycopg2
-```
-* and remember to add both to your **requirements.txt** file with: <br/>
-```bash
-pip3 freeze --local > requirements.txt
+pip3 freeze > requirements.txt
 ```
 4. Update the settings.py file to import the env.py file:
 ```python
@@ -451,15 +490,16 @@ else:
 ```bash
 python3 manage.py showmigrations
 ```
-**Note:** this does not transfer the data, only the database structure
-* If you are connected to the external database, you should see a list of migrations, but none of them are checked off
-* Run the migrate command in the terminal
+**Note:** this does not transfer the data, only the database structure. If you are connected to the external database, you should see a list of migrations, but none of them will be checked off. Run the migrate command in the terminal.
 ```bash
 python3 manage.py migrate
 ```
-7. Temporarily disable collectstatic by updating Heroku config vars as DISABLE_COLLECTSTATIC=1 to tell Heroku not to collect static files when we deploy
+7. Temporarily disable collectstatic by updating Heroku config vars as DISABLE_COLLECTSTATIC=1 to tell Heroku not to collect static files when we deploy.
 8. Add Heroku to the ALLOWED_HOSTS list the format ['app_name.heroku.com', 'localhost']
-9. Create a superuser for your new database: python3 manage.py createsuperuser </br>
+9. Create a superuser for your new database: 
+```bash
+python3 manage.py createsuperuser
+```
 Follow the steps to create your superuser username and password.
 10. Set DEBUG to be True only if there's a variable called development in the environment:
 ```python
@@ -467,24 +507,23 @@ DEBUG = 'DEVELOPMENT' in os.environ
 ```
 
 ### Connect to Stripe
-1. Log in to Stripe, click the developers link, and then API Keys
+1. Assuming you already have an account, log in to Stripe, click the developers link, and then API Keys.
 2. Add the key values as Config Vars in Heroku to connect the deployed project to Stripe
 3. Create a new webhook endpoint, click developers -> webhooks, select the 'add endpoint' link
 4. Add the URL for our Heroku app, followed by '/checkout/WH' and select 'receive all events' then click 'add endpoint'.
 5. Reveal the webhooks signing secret and add that as the value to the STRIPE_WH_SECRET config var in the Heroku app's Deploy tab
 
 ### Connect to AWS 
-Create an AWS Account  to host our static files and images by going to aws.amazon.com and click on create an aws account by filling in your email and a password and choose a username for the account and select continue
-
 1. Go to aws.amazon.com Login, or create an AWS Account to host static files and images
 2. Select S3.
 3. Click on 'Create Bucket' to create a new storage bucket.
-4. Name the new bucket ideally following the same naming convention as the project and make it public in order to allow public access to the static files.
-5. On the Block Public Access settings for this bucket section, uncheck *Block all public access*, check the *I acknowledge that the current settings might result in this bucket and the objects within becoming public* checkbox to make the bucket public and click *create bucket*
-6. Click the bucket you created and select the properties tab. Scroll down to find the static web hosting section and select enable static web hosting, tick host a static website and add index.html and error.html to the input fields for Index document and Error document respectively and save.
-7. Open the permissions tab and copy the ARN (Amazon Resource Name). Navigate to the bucket policy section, click edit and select policy generator. From the Select Type Policy dropdown options, select S3 bucket policy. We want to allow all principal by adding the * to the input and the from the Actions dropdown, select GetObject.
-8. Paste the ARN we copied into the ARN (Amazon Resource Name) input field and click add statement, then click generate policy, copy the Policy from the new popup and paste it into the bucket policy editor and add /* at the end of the resource value to allow access to all resources in this policy and save.
-9. AWS has changed the format of their cross-origin resource sharing (CORS) configuration so we need to paste the update code below to the CORS section:
+4. Name the new bucket - ideally following the same naming convention as the project.
+5. On the **Object Ownership** section, select ACLs enabled. A bucket ownership dropdown will appear, select 'bucket owner preferred'.
+6. On the **Block Public Access** settings, make the bucket public and click *create bucket*.
+7. Click the bucket you created and select the **Properties** tab. Scroll down to find the **Static Web Hosting** section and select 'enable static web hosting', tick 'host a static website' and add index.html and error.html to the input fields for Index document and Error document respectively.
+8. Open the **Permissions** tab and copy the ARN (Amazon Resource Name). Go to the **Bucket Policy** section, click edit and select policy generator. From the 'select type policy' dropdown options, select S3 bucket policy.  Add * to the input to allow all principal. From the 'actions' dropdown, select 'GetObject'.
+9. Paste the ARN we copied into the ARN (Amazon Resource Name) input field and click 'add statement', then click generate policy. Copy the Policy from the new popup and paste it into the bucket policy editor and add /* at the end of the resource value to allow access to all resources in this policy.
+10. Paste in the code below to the cross-origin resource sharing (CORS) section:
 ```json
 [
   {
@@ -501,12 +540,12 @@ Create an AWS Account  to host our static files and images by going to aws.amazo
   }
 ]
 ```
-10. For the **Access control list (ACL)** section, click *edit* and tick *List* for **Everyone (public access)** and accept the warning box. If the edit button is disabled you need to change the **Object Ownership** section above to **ACLs enabled**.
-11. Create an Identify and Access Management (IAM) User Group into which we create the policy used to access our S3 bucket, and create a User to access the S3 bucket. This static files user will have access keys which will be used to connect the bucket to our deployed app on Heroku via config var keys.
-* Start by creating a group by selecting **User Groups** and click *create group*
-* Add a name for your group, then click *create policy* button
-* Open the *JSON* tab on the new page and click the *import managed policy* link on the top right side of the page
-* Search for S3 and select the pre-built *AmazonS3FullAccess* policy and click *import*
+11. For the **Access control list (ACL)** section, click 'edit' and tick 'list' for 'everyone (public access)' and accept the warning box.
+12. Create an **Identify and Access Management (IAM) User Group**. In this we will create the policy used to access our S3 bucket, and create a User to access the S3 bucket. This static files user will have access keys which will be used to connect the bucket to our deployed app on Heroku via config var keys.
+* Start by creating a group by selecting **User Groups** and click *create group*.
+* Add a name for your group, then click *create policy* button.
+* Open the *JSON* tab on the new page and click the *import managed policy* link on the top right side of the page.
+* Search for S3 and select the pre-built *AmazonS3FullAccess* policy and click *import*.
 * Edit the policy by pasting the S3 ARN on *resource*, ie:
 ```json
 {
@@ -635,3 +674,4 @@ The website was deployed to GitHub Pages as follows:
 5. Under "Branch" select "main" from the dropdown
 6. Click "Save" which will then refresh the page
 7. It might take a few mins before you can refresh and view the link to the site published
+
