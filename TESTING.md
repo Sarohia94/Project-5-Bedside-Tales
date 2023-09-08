@@ -154,6 +154,74 @@ Payment is processed using stripe. A blue screen overlay with a spinner is displ
 
 ## PEP8
 
+Testing carried out via PEP8 Validator, all clear, no errors found:
+
+* bag
+1. [bag_tools.py](docs/testing/pep8/bag_tools.png)
+2. [apps.py](docs/testing/pep8/bag_apps.png)
+3. [contexts.py](docs/testing/pep8/bag_contexts.png)
+4. [urls.py](docs/testing/pep8/bag_urls.png)
+5. [views.py](docs/testing/pep8/bag_views.png)
+
+* bedside_tales
+1. [asgi.py](docs/testing/pep8/tales_asgi.png)
+2. [settings.py](docs/testing/pep8/tales_settings.png)
+3. [urls.py](docs/testing/pep8/tales_urls.png)
+4. [views.py](docs/testing/pep8/tales_views.png)
+5. [wsgi.py](docs/testing/pep8/tales_wsgi.png)
+
+* checkout
+1. [__init__.py](docs/testing/pep8/checkout_init.png)
+2. [admin.py](docs/testing/pep8/checkout_admin.png)
+3. [apps.py](docs/testing/pep8/checkout_apps.png)
+4. [forms.py](docs/testing/pep8/checkout_forms.png)
+5. [models.py](docs/testing/pep8/checkout_models.png)
+6. [signals.py](docs/testing/pep8/checkout_signals.png)
+7. [urls.py](docs/testing/pep8/checkout_urls.png)
+8. [views.py](docs/testing/pep8/checkout_views.png)
+9. [webhook_handler.py](docs/testing/pep8/checkout_webhook_handler.png)
+10. [webhooks.py](docs/testing/pep8/checkout_webhooks.png)
+
+* home
+1. [apps.py](docs/testing/pep8/home_apps.png)
+2. [urls.py](docs/testing/pep8/home_urls.png)
+3. [views.py](docs/testing/pep8/home_views.png)
+
+* other
+1. [admin.py](docs/testing/pep8/other_admin.png)
+2. [apps.py](docs/testing/pep8/other_apps.png)
+3. [forms.py](docs/testing/pep8/other_forms.png)
+4. [models.py](docs/testing/pep8/other_models.png)
+5. [urls.py](docs/testing/pep8/other_urls.png)
+6. [views.py](docs/testing/pep8/other_views.png)
+
+* products
+1. [admin.py](docs/testing/pep8/products_admin.png)
+2. [apps.py](docs/testing/pep8/products_apps.png)
+3. [forms.py](docs/testing/pep8/products_forms.png)
+4. [models.py](docs/testing/pep8/products_models.png)
+5. [urls.py](docs/testing/pep8/products_urls.png)
+6. [views.py](docs/testing/pep8/products_views.png)
+7. [widgets.py](docs/testing/pep8/products_widgets.png)
+
+* profiles
+1. [apps.py](docs/testing/pep8/profiles_apps.png) 
+2. [forms.py](docs/testing/pep8/profiles_forms.png)
+3. [models.py](docs/testing/pep8/profiles_models.png)
+4. [urls.py](docs/testing/pep8/profiles_urls.png)
+5. [views.py](docs/testing/pep8/profiles_views.png)
+
+* wishlist
+1. [admin.py](docs/testing/pep8/products_admin.png)
+2. [apps.py](docs/testing/pep8/products_apps.png)
+3. [models.py](docs/testing/pep8/products_models.png)
+4. [urls.py](docs/testing/pep8/products_urls.png)
+5. [views.py](docs/testing/pep8/products_views.png)
+
+* [custom_storages.py](docs/testing/pep8/custom_storages.png)
+
+* [manage.py](docs/testing/pep8/manage.png)
+
 - - - 
 
 ## W3C-Validator
