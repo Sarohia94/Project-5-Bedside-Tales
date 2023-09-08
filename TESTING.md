@@ -150,3 +150,38 @@ Payment is processed using stripe. A blue screen overlay with a spinner is displ
 
 ## Issues
 
+- - -
+
+## PEP8
+
+- - - 
+
+## W3C-Validator
+
+- - - 
+
+## Manual Testing
+
+* BDD, or Behaviour Driven Development, is the process used to test user stories in a non-technical way, allowing anyone to test the features of an app. User stories as documented in the readme all pass the acceptance criteria set on the Kanban board. So this has been acheived.
+
+* The Website was tested on Samsung internet, Google Chrome and Firefox browsers. No functionality issues were noted. 
+
+* There were issues identified following these tests, a known bug and a resolved bug. Please see issues.
+
+See below tests carried out over different browsers and devices. Responsive design was also checked throughout all stages of development using Chrome developer tools through inspect.
+
+* Tested website on mobile with [Chrome](docs/testing/manualtesting/chrome_mobile.jpg) & [Samsung internet](docs/testing/manualtesting/samsunginternet_mobile.jpg)
+* Tested on laptop with [Microsoft Edge](docs/testing/manualtesting/microsoftedge_laptop.png) and desktop with [Firefox](docs/testing/manualtesting/firefox_desktop.png).
+
+- - - 
+
+## Accessibility
+
+- - - 
+
+## Lighthouse Testing
+
+- - - 
+
+## User Validation Testing
+
