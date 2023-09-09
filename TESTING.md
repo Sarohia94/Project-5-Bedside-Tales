@@ -8,7 +8,7 @@ Return to [README](https://github.com/Sarohia94/Project-5-Bedside-Tales/blob/mai
 * [JSHint](#JSHint)
 * [W3C Validator](#W3C-Validator)
 * [Manual Testing](#Manual-Testing)
-* [Accessibility](#Accessiblity)
+* [Accessibility](#accessibility)
 * [Lighthouse Testing](#lighthouse-testing)
 * [User Validation Testing](#User-Validation-Testing)
 
@@ -159,6 +159,8 @@ Following testing, these issues are the unresolved bugs I am unaware of. Due to 
 
 2. On the checkout page the form will submit when text is submitted in the phone no. field
 
+3. The default noimage.png file doesn't seem to render in absence of the product image.
+
 ### Resolved bugs
 
 1. Category menu items were not rendering. Martin from tutor support helped me to understand that these are case sensitive and have to match the admin. I then had the issue of w3c error due to space in "Picture book", this was amended following the [stackoverflow](https://stackoverflow.com/questions/497908/is-a-url-allowed-to-contain-a-space) post.
@@ -175,7 +177,7 @@ I was able to get to the below but I got a TypeError: cannot unpack non-iterable
 Review.objects.filter(product).order_by("-date")
 ```
 Sarah from tutor support was able to provide rationale on which part of the code to look at and what I was asking it to do.
-Django doesn't know what to do with the product object there. A field is needed to advise what we are filtering by. Previously pk=product_id was used and this would've told Django to filter based on the pk field of the Review model using the product_id. Similarly we want to specify the field on the model we're filtering by and then give it the information it can use to filter - the product object or the product object's id.
+Django doesn't know what to do with the product object above. A field is needed to advise what we are filtering by. Previously pk=product_id was used and this would've told Django to filter based on the pk field of the Review model using the product_id. Similarly we want to specify the field on the model we're filtering by and then give it the information it can use to filter - the product object or the product object's id.
 As such this was resolved by amending it to:
 ```python
 review = Review.objects.filter(product=product_id).order_by("-date")
@@ -183,9 +185,9 @@ review = Review.objects.filter(product=product_id).order_by("-date")
 
 4. The featured_author template was not displaying the content added in the admin panel. Issue was with my featured_author view so tried to amend myself but I was getting error message after error message so had assistance from Gemma in tutor support who was able to provide some rationale.
 
-This was resolved by fixing the many small issues I had with inconsistant/incorrect syntax, i.e. pay attention to watch variable is passed ('featured_author': Featured as opposed to featured). Ensure the assigned variable featured_author from the view.py file is being used correctly in the template.   
+This was resolved by fixing the many small issues I had with inconsistant/incorrect syntax, i.e. pay attention to which variable is passed ('featured_author': Featured where it should be featured). Ensure the assigned variable featured_author from the view.py file is being used correctly in the template.   
 
-Amended below where I was trying to pick out the author from the featured model so that I can call this to the featured_author template.
+Amended below where I was trying to pick out the author from the author model so that I can call this to the featured_author template.
 ```python
 featured = Author.objects.filter(author=featured.author)
 ```
@@ -195,7 +197,7 @@ featured = Featured.objects.filter(is_featured=True)
 ```
 Since the featured author is a list of objects, a for loop was added to the template too.
 
-5. Issue with the +/- buttons on the product page. The buttons wouldn't increment or decrement. Previously they were working on this page but going negative so I amended the id for increment-qty_{{ item.item_id }} and decrement-qty_{{ item.item_id }} to the class for buttons as suggested in the walkthrough. This fixed the issue on the checkout page where they increment and decrement ok but as a result they do not work at all on the product page. I could manually update the number by inputting or going up and down but just the buttons seem to be disabled. The quantity_input_script and bag_quantity template worked fine for the checkout page when using the buttons there.
+5. Issue with the +/- buttons on the product page. The buttons wouldn't increment or decrement. Previously they were working on this page but going negative so I amended the id for increment-qty_{{ item.item_id }} and decrement-qty_{{ item.item_id }} to the class for buttons as suggested in the walkthrough. This fixed the issue on the checkout page where they increment and decrement ok but as a result they do not work at all on the product page. I could manually update the number by inputting or going up and down but just the buttons seemed to be disabled. The quantity_input_script and bag_quantity template worked fine for the checkout page when using the buttons there.
 
 Due to time constraints I was only able to settle on a different version of the script for the product include. So I had two versions, one that suited one page and one for the other. It's not the most elegant of solutions but it sustains most the functionality as expected for both pages other than the known issue on checkout page (see known bug no.1).
 
@@ -314,11 +316,11 @@ No issues with the CSS files:
 
 ## Manual Testing
 
-* BDD, or Behaviour Driven Development, is the process used to test user stories in a non-technical way, allowing anyone to test the features of an app. User stories as documented in the readme all pass the acceptance criteria set on the Kanban board. So this has been acheived.
+* BDD, or Behaviour Driven Development, is the process used to test user stories in a non-technical way, allowing anyone to test the features of an app. User stories as documented in the readme all pass the acceptance criteria set on the Kanban board. So this has been achieved.
 
 * The Website was tested on Samsung internet, Google Chrome and Firefox browsers. No functionality issues were noted. 
 
-* There were issues identified following these tests, a known bug and a resolved bug. Please see issues.
+* There were issues identified following these tests, known and resolved bugs. Please see Issues.
 
 See below tests carried out over different browsers and devices. Responsive design was also checked throughout all stages of development using Chrome developer tools through inspect for min width 320px.
 

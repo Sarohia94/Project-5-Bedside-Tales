@@ -347,7 +347,7 @@ I have tried to use defensive programming throughout the site to prevent users a
 
 * Similary when submitting an order if the required fields are not filled in then the user will be requested to ensure the form is completed and valid. This will not submit until all required fields are completed properly.
 
-See [TESTING.md](https://github.com/Sarohia94/Project-4-Baking-Blog/blob/main/TESTING.md) document.
+See [TESTING.md](https://github.com/Sarohia94/Project-5-Bedside-Tales/blob/main/TESTING.md) document.
 
 ### Database Security
 
@@ -361,7 +361,7 @@ This was created for when a user is trying to access a page that is not valid. T
 
 * 404 Error - The requested page doesn't exist! 
 
-See [TESTING.md](https://github.com/Sarohia94/Project-4-Baking-Blog/blob/main/TESTING.md) document.
+See [TESTING.md](https://github.com/Sarohia94/Project-5-Bedside-Tales/blob/main/TESTING.md) document.
 
 - - -
 
@@ -378,9 +378,9 @@ Django framework was used in this project:
 * Dj_database_url - to parse the database URL from the environment variables in Heroku.
 * Psycopg2 - as an adaptor for Python and PostgreSQL databases.
 * Allauth - for authentication, registration, account management.
-* Crispy forms - provides a tag and filter that lets you quickly render forms
+* Crispy forms - provides a tag and filter that lets you quickly render forms.
 * Pillow - python image processing library. To enable images to be viewed with the product model.
-* Stripe - python web framework to set up payment processing
+* Stripe - python web framework to set up payment processing.
 * Django Countries - to use a drop-down list of Countries to choose from.
 * JQuery code library.
 * Boto3 - to connect Django to AWS and enable static files storage.
@@ -399,10 +399,11 @@ Django framework was used in this project:
 * [Wave](https://wave.webaim.org/) - to test web accessibility.
 * [W3C](https://validator.w3.org/) - HTML validator.
 * [Jigsaw](https://jigsaw.w3.org/css-validator/) - CSS validator.
+* [JSHint](https://jshint.com/) - a tool that helps to detect errors and potential problems in JavaScript code.
 * [Tiny PNG](https://tinypng.com/) - to compress images.
 * [Responsive design checker](https://responsivedesignchecker.com/) - to check responsive design for a variety of screen sizes.
 * [Favicon.io](https://favicon.io/favicon-generator/) - to creat favicon icon for the website.
-* Django - a high-level Python web framework that encourages rapid development
+* Django - a high-level Python web framework that encourages rapid development.
 * Bootstrap - a framework for building responsive, mobile-first sites.
 * Heroku - used to deploy and host the live project.
 * PostgreSQL - database used through heroku.
@@ -413,7 +414,7 @@ Django framework was used in this project:
 
 ## Testing 
 
-Details of all testing done can be viewed in depth in the [TESTING.md](https://github.com/Sarohia94/Project-4-Baking-Blog/blob/main/TESTING.md) document.
+Details of all testing done can be viewed in depth in the [TESTING.md](https://github.com/Sarohia94/Project-5-Bedside-Tales/blob/main/TESTING.md) document.
 
 - - -
 
@@ -501,7 +502,8 @@ python3 manage.py migrate
 python3 manage.py createsuperuser
 ```
 Follow the steps to create your superuser username and password.
-10. Set DEBUG to be True only if there's a variable called development in the environment:
+
+10. Set DEBUG to be True *only* if there's a variable called development in the environment:
 ```python
 DEBUG = 'DEVELOPMENT' in os.environ
 ```
@@ -510,7 +512,7 @@ DEBUG = 'DEVELOPMENT' in os.environ
 1. Assuming you already have an account, log in to Stripe, click the developers link, and then API Keys.
 2. Add the key values as Config Vars in Heroku to connect the deployed project to Stripe
 3. Create a new webhook endpoint, click developers -> webhooks, select the 'add endpoint' link
-4. Add the URL for our Heroku app, followed by '/checkout/WH' and select 'receive all events' then click 'add endpoint'.
+4. Add the URL for our Heroku app, followed by '/checkout/WH/' and select 'receive all events' then click 'add endpoint'.
 5. Reveal the webhooks signing secret and add that as the value to the STRIPE_WH_SECRET config var in the Heroku app's Deploy tab
 
 ### Connect to AWS 
@@ -519,11 +521,9 @@ DEBUG = 'DEVELOPMENT' in os.environ
 3. Click on 'Create Bucket' to create a new storage bucket.
 4. Name the new bucket - ideally following the same naming convention as the project.
 5. On the **Object Ownership** section, select ACLs enabled. A bucket ownership dropdown will appear, select 'bucket owner preferred'.
-6. On the **Block Public Access** settings, make the bucket public and click *create bucket*.
-7. Click the bucket you created and select the **Properties** tab. Scroll down to find the **Static Web Hosting** section and select 'enable static web hosting', tick 'host a static website' and add index.html and error.html to the input fields for Index document and Error document respectively.
-8. Open the **Permissions** tab and copy the ARN (Amazon Resource Name). Go to the **Bucket Policy** section, click edit and select policy generator. From the 'select type policy' dropdown options, select S3 bucket policy.  Add * to the input to allow all principal. From the 'actions' dropdown, select 'GetObject'.
-9. Paste the ARN we copied into the ARN (Amazon Resource Name) input field and click 'add statement', then click generate policy. Copy the Policy from the new popup and paste it into the bucket policy editor and add /* at the end of the resource value to allow access to all resources in this policy.
-10. Paste in the code below to the cross-origin resource sharing (CORS) section:
+6. On the **Block Public Access** settings, uncheck block all public access on and acknowledge that the bucket will be public (in order to allow public access to our static files) and click *create bucket*.
+7. Click the bucket you created and select the **Properties** tab. Scroll down to the bottoms to find the **Static Web Hosting** section and select 'enable static web hosting', tick 'host a static website' and add index.html and error.html to the input fields for Index document and Error document respectively.
+8. On the **Permissions** tab paste in a coors configuration which is going to set up the required access between our Heroku app and this s3 bucket.
 ```json
 [
   {
@@ -540,8 +540,10 @@ DEBUG = 'DEVELOPMENT' in os.environ
   }
 ]
 ```
-11. For the **Access control list (ACL)** section, click 'edit' and tick 'list' for 'everyone (public access)' and accept the warning box.
-12. Create an **Identify and Access Management (IAM) User Group**. In this we will create the policy used to access our S3 bucket, and create a User to access the S3 bucket. This static files user will have access keys which will be used to connect the bucket to our deployed app on Heroku via config var keys.
+9. On the **Permissions** tab copy the ARN (Amazon Resource Name). Go to the **Bucket Policy** section, click edit and select policy generator. From the 'select type policy' dropdown options, select S3 bucket policy.  Add * to the input to allow all principal. From the 'actions' dropdown, select 'GetObject'.
+10. Paste the ARN we copied into the ARN (Amazon Resource Name) input field and click 'add statement', then click generate policy. Copy the Policy from the new popup and paste it into the bucket policy editor and add /* at the end of the resource value to allow access to all resources in this policy. So our bucket policy and CORS configuration will now allow full access to all resources in this bucket.
+11. For the **Access control list (ACL)** section, click 'edit' and enable List for Everyone (public access) and accept the warning box. If the edit button is disabled, you need to change the Object Ownership section above to ACLs enabled.
+12. Create an **Identify and Access Management (IAM) User Group**. In this we will create the policy used to access our S3 bucket, and create a User to access the S3 bucket. This static files user will have access keys which will be used to connect the bucket to our deployed app on Heroku via config var keys. 
 * Start by creating a group by selecting **User Groups** and click *create group*.
 * Add a name for your group, then click *create policy* button.
 * Open the *JSON* tab on the new page and click the *import managed policy* link on the top right side of the page.
@@ -566,7 +568,7 @@ DEBUG = 'DEVELOPMENT' in os.environ
 * Give the policy a name, description then click the *create policy* button
 * Next we need to attach to the Group the policy we just created. Go to *User Groups*, select the group and go to the permissions tab, click the *add permissions* button and select *attach policies* from the dropdown.
 * Select the Policy you created and click *add permissions*
-* We have to create a user for the group. Click *Users* from the left sidebar and then click the *add users* button and add a name for the user
+* We have to create a user for the group. Click *Users* from the left sidebar and then click the *add users* button and add a name for the user.  By assigning a user to the group it can use the policy to access all our files.
 * Next tick *programmatic access* from Access Type and click *next: permissions*
 * Add user to the group and click *next: tags*, *next: review* and then the *create user* button.
 * The download the .csv file which will contain this user's access key and secret access key which we'll use to authenticate them from our Django app.
@@ -608,7 +610,7 @@ class StaticStorage(S3Boto3Storage):
 class MediaStorage(S3Boto3Storage):
     location = settings.MEDIAFILES_LOCATION
 ```
-* Next, back to **settings.py** file and tell it that for static file storage, we want to use our storage class we just created and that the location it should save static files us a folder called static. And then do the same thing for media files using the default file storage and media files location settings.
+* Next, back to **settings.py** file and tell it that for static file storage, we want to use our storage class we just created and that the location it should save static files is a folder called static. And then do the same thing for media files using the default file storage and media files location settings.
 ```python
     # Static and media files
     STATICFILES_STORAGE = 'custom_storages.StaticStorage'
@@ -635,7 +637,7 @@ Add the following Config Vars in Heroku:
 * SECRET_KEY = 'your secret key from Gitpod'
 * STRIPE_PUBLIC_KEY = 'public key generated by Stripe'
 * STRIPE_SECRET_KEY = 'secret key generated by Stripe'
-* STRIPE_WH_KEY = 'Webhook secret key generated by Stripe'
+* STRIPE_WH_SECRET = 'Webhook secret key generated by Stripe'
 * USE_AWS = 'True'
 * DISABLE_COLLECTSTATIC = '1'
 
@@ -675,3 +677,34 @@ The website was deployed to GitHub Pages as follows:
 6. Click "Save" which will then refresh the page
 7. It might take a few mins before you can refresh and view the link to the site published
 
+- - -
+
+## Credits
+
+### Code
+
+For general guidance and trouble shooting:
+* W3Schools
+* Django Docs
+* [Bootstrap Docs](https://getbootstrap.com/docs/5.2/getting-started/introduction/)
+* Stack Overflow
+* Youtube videos by Codemy
+* Youtube video by [Coding is thinking](https://www.youtube.com/watch?v=x8kQ_Voa1pk) for contact form.
+* Youtube demo by [Tech2 etc](https://www.youtube.com/watch?v=P8YuWEkTeuE&list=WL&index=14)
+* Webhook trouble shooting for [what to do when the HTTP status code starts with a four (4xx) or five (5xx) : Stripe: Help & Support](https://support.stripe.com/questions/webhooks-what-to-do-when-the-http-status-code-starts-with-a-four-%284xx%29-or-five-%285xx%29) and 
+[what to do when the HTTP status code starts with a three (3xx) : Stripe: Help & Support](https://support.stripe.com/questions/webhooks-what-to-do-when-the-http-status-code-starts-with-a-three-%283xx%29).
+
+* Credit to Code Institute - Boutique Ado Walkthrough Project for forming the basis of this project.
+* Credit to [JoyZadan](https://github.com/JoyZadan/shop-kbeauty) for inspiration and reference particularly readme and wishlist
+* Credit to [farah-maria](https://github.com/farah-maria/LeabharMaith/) for inspiration on MVP and particularly for contact form.
+* Credit to [MoniMurray](https://github.com/MoniMurray/bookworms-et-al) for inspiration and reference.
+
+Images creditted as follows:
+* Hero image and placeholder featured image for post was taken from [here](https://discover.fiverr.com/wp-content/uploads/10a66f553b99010724e17138d3732e6fb098966a-854x576.png).
+* The Favicon icon was taken from [Pinterest](https://nl.pinterest.com/pin/367958232047536824/) 
+* All book images were from [Waterstones](https://www.waterstones.com/).
+
+### Acknowledgements 
+Thank you to anyone taking the time to view my project. Special thanks to the Slack community and the below individuals:
+* [Chris Quinn](https://github.com/10xOXR) and Martina Terlevic, my subsitute mentor on this last project. Thank you for your guidance and feedback.
+* To the tutors from tutor support for their help and assistance.
