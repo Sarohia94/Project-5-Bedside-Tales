@@ -58,7 +58,7 @@ Below are the main features the user will come across
 
 ![Feature 9](docs/features/feature9.png)
 
-10. On the home page we have our hero image which enforces what the shop is selling and a big show now button that changes the colour and on clicking displays all books.
+10. On the home page we have our hero image which enforces what the shop is selling and a big shop now button that changes colour on clicking  and takes the user to all books page.
 
 ![Feature 10](docs/features/feature10.png)
 
@@ -66,7 +66,7 @@ Below are the main features the user will come across
 
 ![Feature 11](docs/features/feature11.png)
 
-12. Clicking on a book catergory will display the Catergory you are looking at, with the results - each book has the tag displayed confirming this too. There is also a link to view all books and a quantity of the results displayed on the page.
+12. Clicking on a book category will display the category you are looking at with the results. Each book has the tag displayed confirming this too. There is also a link to view all books and a quantity of the results displayed on the page.
 
 ![Feature 12](docs/features/feature12.png)
 
@@ -145,7 +145,7 @@ Payment is processed using stripe. A blue screen overlay with a spinner is displ
 
 26. There is a scroll to top arrow button on the shopping bag and book list page to for easy navigation.
 
-27. Finally there is "Book Management" under "My Account" only for admin users who can add a book to the site from the site and also add a new author (custom models). On each book in the book shop the admin user will be able to edit or remove the book from the site as well as the admin.
+27. Finally there is "Book Management" under "My Account" only for admin users who can add a book to the site from the site and also add a new author (custom models). On each book in the book shop the admin user will be able to edit or remove the book from the site as well as the admin. Submissions made by users/visitors on the contact us form from the site can be found in the admin panel.
 
 - - -
 
@@ -340,6 +340,18 @@ See below tests carried out over different browsers and devices. Responsive desi
 
 ## Lighthouse Testing
 
+Google lighthouse add-on was used on Firefox for the testing evidenced below.
+
+Results varied according to internet connection and browser, but the Accessability, Best Practices and SEO scores were high.
+
+![home](docs/testing/lighthouse/home.png)
+
+![products](docs/testing/lighthouse/products.png)
+
+![other/featured](docs/testing/lighthouse/other_featured.png)
+
+![other/contact](docs/testing/lighthouse/other_contact.png)
+
 - - - 
 
 ## User Validation Testing
@@ -347,35 +359,44 @@ See below tests carried out over different browsers and devices. Responsive desi
 This is achieved primarily using django messages.
 
 1. User input is validated when a user signs in.
+
 ![signin](docs/testing/uservalidation/signin.png)
 
 2. User input is validated when a user signs out.
+
 ![signout](docs/testing/uservalidation/signout.png)
 
 3. User input is validated when user tries to sign up.
+
 ![signup](docs/testing/uservalidation/signup.png)
 ![signup_confirm](docs/testing/uservalidation/signup_confirm.png)
 ![signup_confirm2](docs/testing/uservalidation/signup_confirm2.png)
 ![signup_confirm3](docs/testing/uservalidation/signup_confirm3.png)
 
 4. User input is validated when items are added to bag. 
+
 ![added_to_bag](docs/testing/uservalidation/added_to_bag.png)
 
 5. User input is validated when amendments are made to the quantity of an item in the bag. 
+
 ![update_quantity](docs/testing/uservalidation/update_quantity.png)
 
 6. User input is validated when items are removed from bag. 
+
 ![removed_from_bag](docs/testing/uservalidation/removed_from_bag.png)
 
 7. User is redirect to products page if they try to access the checkout url.
+
 ![redirect_from_empty_checkout](docs/testing/uservalidation/redirect_from_empty_checkout.png)
 
-8. User input is validated on the checkout form which will not submit if the required feels are not compeleted and payment card is valid.
+8. User input is validated on the checkout form which will not submit if the required fields are not compeleted and payment card is valid.
 
 9. User input is validated when checkout is completed with message and email confirmation sent to inbox. User will able to see order summary on the site page itself.
+
 ![order_success](docs/testing/uservalidation/order_success.png)
 
 10. User input is validated when a logged in user views their order history (by clicking on the order no.) from their profile and they are taken to a summary of that order on the site page itself.
+
 ![order_history_info](docs/testing/uservalidation/order_history_info.png)
 
 11. User input is validated when using the search bar, where any matching results are displayed - see features section (no.11).
@@ -383,39 +404,51 @@ This is achieved primarily using django messages.
 12. User input is validated when signing up to the newsletter, where confirmation message is displayed for valid input otherwise the following message is displayed "Please enter a valid email address." - see features section (no.7).
 
 13. User input is validated for logged in users when they add a review.
+
 ![review_added](docs/testing/uservalidation/review_added.png)
 
 14. User input is validated when completing the contact form. This will not submit until the required fields are complete and form is deemed valid. A success message is displayed on successful submission.
+
 ![contact_us](docs/testing/uservalidation/contact_us.png)
 
 15. User input is validated if a user who is not logged in tries to add an item to the wishlist from product detail page.
+
 ![wishlist_error](docs/testing/uservalidation/wishlist_error.png)
 
 16. User input is validated if a logged in user tries to add an item to the wishlist that is already on there.
+
 ![wishlist_info](docs/testing/uservalidation/wishlist_info.png)
 
 17. User input is validated if a logged in user adds a new item to the wishlist.
+
 ![wishlist_success](docs/testing/uservalidation/wishlist_success.png)
 
 18. User input is validated if a logged in user removes an item from the wishlist.
+
 ![wishlist_info_removed](docs/testing/uservalidation/wishlist_info_removed.png)
 
 19. User input is validated if users try to access a page that doesn't exist - a custom 404 page is displayed.
+
 ![custom_404](docs/testing/uservalidation/custom_404.png)
 
 20. User input is validated by redirecting the user to the sign in page if they try to access profile from the url.
 
 21. Admin user is validated when adding an author from the book management page.
+
 ![add_author](docs/testing/uservalidation/add_author.png)
 
 22. Admin user is validated when adding a product from the book management page. The form will not submit until the required sections are complete and valid.
-![added_product](docs/testing/uservalidation/add_product.png)
+
+![added_product](docs/testing/uservalidation/added_product.png)
 
 23. Admin user is validated when editing a product.
+
 ![editing_product](docs/testing/uservalidation/editing_product.png)
 
 24. Admin user is validated when product has been successfully updated following the edit.
+
 ![edited_product](docs/testing/uservalidation/edited_product.png)
 
 25. Admin user is validated when a product is deleted.
+
 ![deleted_product](docs/testing/uservalidation/deleted_product.png)
