@@ -226,6 +226,34 @@ Testing carried out via PEP8 Validator, all clear, no errors found:
 
 ## W3C-Validator
 
+All of the errors in the html are found in the source code following the Boutique Ado walkthrough which formed the basis of this project so this has been left to avoid breaking the current functionality.
+
+* [bag.html]()
+
+* [checkout]()
+
+* [home page]()
+Category 'Picture books' was raising an error due to the space. This did not affect the functionality of the site the link rendered fine without spacing as space displayed as %20. But as advised by [stackoverflow](https://stackoverflow.com/questions/497908/is-a-url-allowed-to-contain-a-space), browser encoding rules change quite often so we cannot depend on leaving it as such. I amened to 'Picture-books' which removed the error.
+
+* other
+1. [other/featured]()
+2. [other/contact]()
+
+* [products]()
+
+* [profile]()
+
+* [wishlist](docs/testing/w3c/wishlist.png)
+
+
+No issues with the CSS files:
+
+* [base.css](docs/testing/w3c/base_css.png)
+
+* [checkout.css](docs/testing/w3c/checkout_css.png)
+
+* [profile.css](docs/testing/w3c/profile_css.png)
+
 - - - 
 
 ## Manual Testing
