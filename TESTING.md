@@ -5,6 +5,7 @@ Return to [README](https://github.com/Sarohia94/Project-5-Bedside-Tales/blob/mai
 * [Features](#Features)
 * [Issues](#Issues)
 * [PEP8](#PEP8)
+* [JSHint](#JSHint)
 * [W3C Validator](#W3C-Validator)
 * [Manual Testing](#Manual-Testing)
 * [Accessibility](#Accessiblity)
@@ -150,6 +151,54 @@ Payment is processed using stripe. A blue screen overlay with a spinner is displ
 
 ## Issues
 
+### Known bugs
+
+Following testing, these issues are the unresolved bugs I am unaware of. Due to time constraints I was unable to resolve.
+
+1. User input for quantity is validated on the product detail page. It will not allow user to add to bag for value below 1 nor greater than 100. However from the checkout bag, if user manually amends to 0 and updates the item is removed and likewise if they manually amend to a figure above 100 it will update.
+
+2. On the checkout page the form will submit when text is submitted in the phone no. field
+
+### Resolved bugs
+
+1. Category menu items were not rendering. Martin from tutor support helped me to understand that these are case sensitive and have to match the admin. I then had the issue of w3c error due to space in "Picture book", this was amended following the [stackoverflow](https://stackoverflow.com/questions/497908/is-a-url-allowed-to-contain-a-space) post.
+
+![Issue 1](docs/testing/issues/issue1.png)
+
+2. Unable to view shopping bag for screen sizes larger than mobile using dev tools. Oisin from tutor support helped me identify the issue was with my html tags, the table for large screens was being rendered but it was nested within the div that was displayed on smaller screens.
+
+![Issue 2](docs/testing/issues/issue2.png)
+
+3. Get reviews to display just on the product where a review is added. But the issue I had was that any review added was displayed to all products.  
+I was able to get to the below but I got a TypeError: cannot unpack non-iterable Product object
+```python
+Review.objects.filter(product).order_by("-date")
+```
+Sarah from tutor support was able to provide rationale on which part of the code to look at and what I was asking it to do.
+Django doesn't know what to do with the product object there. A field is needed to advise what we are filtering by. Previously pk=product_id was used and this would've told Django to filter based on the pk field of the Review model using the product_id. Similarly we want to specify the field on the model we're filtering by and then give it the information it can use to filter - the product object or the product object's id.
+As such this was resolved by amending it to:
+```python
+review = Review.objects.filter(product=product_id).order_by("-date")
+```
+
+4. The featured_author template was not displaying the content added in the admin panel. Issue was with my featured_author view so tried to amend myself but I was getting error message after error message so had assistance from Gemma in tutor support who was able to provide some rationale.
+
+This was resolved by fixing the many small issues I had with inconsistant/incorrect syntax, i.e. pay attention to watch variable is passed ('featured_author': Featured as opposed to featured). Ensure the assigned variable featured_author from the view.py file is being used correctly in the template.   
+
+Amended below where I was trying to pick out the author from the featured model so that I can call this to the featured_author template.
+```python
+featured = Author.objects.filter(author=featured.author)
+```
+This was resolved by adding an "is featured" tick box to the model and updating the admin so that I can put an if statement in the template that if this author is featured then to show on the template.
+```python
+featured = Featured.objects.filter(is_featured=True)
+```
+Since the featured author is a list of objects, a for loop was added to the template too.
+
+5. Issue with the +/- buttons on the product page. The buttons wouldn't increment or decrement. Previously they were working on this page but going negative so I amended the id for increment-qty_{{ item.item_id }} and decrement-qty_{{ item.item_id }} to the class for buttons as suggested in the walkthrough. This fixed the issue on the checkout page where they increment and decrement ok but as a result they do not work at all on the product page. I could manually update the number by inputting or going up and down but just the buttons seem to be disabled. The quantity_input_script and bag_quantity template worked fine for the checkout page when using the buttons there.
+
+Due to time constraints I was only able to settle on a different version of the script for the product include. So I had two versions, one that suited one page and one for the other. It's not the most elegant of solutions but it sustains most the functionality as expected for both pages other than the known issue on checkout page (see known bug no.1).
+
 - - -
 
 ## PEP8
@@ -224,6 +273,13 @@ Testing carried out via PEP8 Validator, all clear, no errors found:
 
 - - - 
 
+## JSHint
+
+* [countryfield.js](docs/testing/jshint/countryfield.png)
+* [stripe_elements.js](docs/testing/jshint/stripe_elements.png)
+
+- - - 
+
 ## W3C-Validator
 
 All of the errors in the html are found in the source code following the Boutique Ado walkthrough which formed the basis of this project so this has been left to avoid breaking the current functionality.
@@ -264,7 +320,7 @@ No issues with the CSS files:
 
 * There were issues identified following these tests, a known bug and a resolved bug. Please see issues.
 
-See below tests carried out over different browsers and devices. Responsive design was also checked throughout all stages of development using Chrome developer tools through inspect.
+See below tests carried out over different browsers and devices. Responsive design was also checked throughout all stages of development using Chrome developer tools through inspect for min width 320px.
 
 * Tested website on mobile with [Chrome](docs/testing/manualtesting/chrome_mobile.jpg) & [Samsung internet](docs/testing/manualtesting/samsunginternet_mobile.jpg)
 * Tested on laptop with [Microsoft Edge](docs/testing/manualtesting/microsoftedge_laptop.png) and desktop with [Firefox](docs/testing/manualtesting/firefox_desktop.png).
