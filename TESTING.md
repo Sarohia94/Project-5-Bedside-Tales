@@ -228,20 +228,20 @@ Testing carried out via PEP8 Validator, all clear, no errors found:
 
 All of the errors in the html are found in the source code following the Boutique Ado walkthrough which formed the basis of this project so this has been left to avoid breaking the current functionality.
 
-* [bag.html]()
+* [bag.html](https://validator.w3.org/nu/?showsource=yes&doc=https%3A%2F%2Fproject-5-bedside-tales-0c52d874d839.herokuapp.com%2Fbag%2F)
 
-* [checkout]()
+* [checkout](https://validator.w3.org/nu/?showsource=yes&doc=https%3A%2F%2Fproject-5-bedside-tales-0c52d874d839.herokuapp.com%2Fcheckout%2F)
 
-* [home page]()
-Category 'Picture books' was raising an error due to the space. This did not affect the functionality of the site the link rendered fine without spacing as space displayed as %20. But as advised by [stackoverflow](https://stackoverflow.com/questions/497908/is-a-url-allowed-to-contain-a-space), browser encoding rules change quite often so we cannot depend on leaving it as such. I amened to 'Picture-books' which removed the error.
+* [home page](https://validator.w3.org/nu/?showsource=yes&doc=https%3A%2F%2Fproject-5-bedside-tales-0c52d874d839.herokuapp.com%2F)
+Category 'Picture books' was raising an error due to the space. This did not affect the functionality of the site as the link rendered fine without spacing (space displayed as %20). But as advised by [stackoverflow](https://stackoverflow.com/questions/497908/is-a-url-allowed-to-contain-a-space), browser encoding rules change quite often so we cannot depend on leaving it as such. I amended to 'Picture-books' which removed the error.
 
 * other
-1. [other/featured]()
-2. [other/contact]()
+1. [other/featured](https://validator.w3.org/nu/?showsource=yes&doc=https%3A%2F%2Fproject-5-bedside-tales-0c52d874d839.herokuapp.com%2Fother%2Ffeatured)
+2. [other/contact](https://validator.w3.org/nu/?showsource=yes&doc=https%3A%2F%2Fproject-5-bedside-tales-0c52d874d839.herokuapp.com%2Fother%2Fcontact)
 
-* [products]()
+* [products](https://validator.w3.org/nu/?showsource=yes&doc=https%3A%2F%2Fproject-5-bedside-tales-0c52d874d839.herokuapp.com%2Fproducts%2F)
 
-* [profile]()
+* [profile](https://validator.w3.org/nu/?showsource=yes&doc=https%3A%2F%2Fproject-5-bedside-tales-0c52d874d839.herokuapp.com%2Fprofile%2F)
 
 * [wishlist](docs/testing/w3c/wishlist.png)
 
@@ -272,6 +272,13 @@ See below tests carried out over different browsers and devices. Responsive desi
 - - - 
 
 ## Accessibility
+
+[Wave](https://wave.webaim.org/) Web Accessibility Evaluation Tools were used to test accessibility for main pages accessible to all users. Please see the results below for each page. Additional aria labels were added to improve accessibility and remove errors.
+
+* [home](docs/testing/wave/home.png)
+* [other/featured](docs/testing/wave/other_featured.png)
+* [other/contact](docs/testing/wave/other_contact.png)
+* [products](docs/testing/wave/products.png)
 
 - - - 
 
