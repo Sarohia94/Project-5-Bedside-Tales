@@ -281,7 +281,7 @@ Principles of object-oriented programming was used throughout this project and D
 
 The project was created using the Django framework. Multiple apps were created; bag, checkout, home, other, products, profiles and wishlist.
 
-3 custom models were developed for this project. Review model allows registered users to leave a review , Contact model for users to get in touch and Wishlist model for registered users to add or remove books from their wishlist. The other models were from the Boutique Ado walkthrough.
+4 custom models were developed for this project. Review model allows registered users to leave a review , Contact model for users to get in touch and Wishlist model for registered users to add or remove books from their wishlist and finally featured_author model to spotlight an author on the website. The other models were from the Boutique Ado walkthrough.
 
 ![Custom database model](docs/custom_model.png)
 
